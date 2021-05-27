@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 26-05-2021 a las 21:55:26
+-- Tiempo de generación: 27-05-2021 a las 02:04:00
 -- Versión del servidor: 8.0.17
 -- Versión de PHP: 7.3.10
 
@@ -74,15 +74,17 @@ INSERT INTO `clientes` (`idcliente`, `nombres`, `apellidos`, `correo`, `dni`, `c
 CREATE TABLE `producto` (
   `idproducto` int(11) NOT NULL,
   `id` int(15) NOT NULL,
-  `pac` varchar(15) NOT NULL
+  `pac` varchar(15) NOT NULL,
+  `estado` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Volcado de datos para la tabla `producto`
 --
 
-INSERT INTO `producto` (`idproducto`, `id`, `pac`) VALUES
-(1, 879564213, 'wjjdhfj657541');
+INSERT INTO `producto` (`idproducto`, `id`, `pac`, `estado`) VALUES
+(1, 654421, 'dkrt4554drfg', 1),
+(3, 52114, 'wjjdhfj657541', 0);
 
 -- --------------------------------------------------------
 
@@ -93,7 +95,6 @@ INSERT INTO `producto` (`idproducto`, `id`, `pac`) VALUES
 CREATE TABLE `solicitud` (
   `idsolicitud` int(11) NOT NULL,
   `fecha` date NOT NULL,
-  `estado` int(2) NOT NULL,
   `idproducto` int(11) NOT NULL,
   `idcliente` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -102,8 +103,8 @@ CREATE TABLE `solicitud` (
 -- Volcado de datos para la tabla `solicitud`
 --
 
-INSERT INTO `solicitud` (`idsolicitud`, `fecha`, `estado`, `idproducto`, `idcliente`) VALUES
-(1, '2019-07-08', 1, 1, 1);
+INSERT INTO `solicitud` (`idsolicitud`, `fecha`, `idproducto`, `idcliente`) VALUES
+(5, '2021-05-03', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -117,18 +118,18 @@ CREATE TABLE `trabajadores` (
   `apellidos` varchar(30) NOT NULL,
   `correo` varchar(50) NOT NULL,
   `contraseña` int(10) NOT NULL,
-  `codigo` int(10) NOT NULL,
-  `idcargo_trabajador` int(11) NOT NULL
+  `usuario` int(10) NOT NULL,
+  `idcargo_trabajador` int(11) NOT NULL,
+  `estado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Volcado de datos para la tabla `trabajadores`
 --
 
-INSERT INTO `trabajadores` (`idtrabajador`, `nombres`, `apellidos`, `correo`, `contraseña`, `codigo`, `idcargo_trabajador`) VALUES
-(1, 'Luis Angel', 'Izquierdo Rojas ', 'luisito_derecha@gmail.com', 12345, 123456789, 1),
-(2, 'Lucio', 'Ramirez Gonzales', 'lucio@gmail.com', 123, 1231, 3),
-(3, 'Miguel', 'Rojas Huertas', 'chris.huertas@gmail.com', 546, 456878913, 2);
+INSERT INTO `trabajadores` (`idtrabajador`, `nombres`, `apellidos`, `correo`, `contraseña`, `usuario`, `idcargo_trabajador`, `estado`) VALUES
+(4, 'Lucio', 'Ramirez Gonzales', 'lucio@gmail.com', 123, 1231, 1, 0),
+(5, 'Jose', 'Castro', 'jose@gmail.com', 987, 98754613, 3, 0);
 
 --
 -- Índices para tablas volcadas
@@ -187,19 +188,19 @@ ALTER TABLE `clientes`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `idproducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idproducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `solicitud`
 --
 ALTER TABLE `solicitud`
-  MODIFY `idsolicitud` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idsolicitud` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `trabajadores`
 --
 ALTER TABLE `trabajadores`
-  MODIFY `idtrabajador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idtrabajador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Restricciones para tablas volcadas
