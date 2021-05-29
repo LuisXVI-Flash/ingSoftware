@@ -9,5 +9,4 @@
             //return $resultado -> fetch_all();
         }
     }
-    
 ?>
