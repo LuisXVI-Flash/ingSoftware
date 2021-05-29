@@ -7,7 +7,7 @@
     <title>TECA</title>
 <f/head>
 <body>
-    <form action="../controller/controlador_cliente.php" method="POST">
+    <form action="?vista=cliente" method="POST">
     <h1>Registro de Clientes</h1>
         <div>
             <label for = "nombres">Nombres</label>
