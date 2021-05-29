@@ -1,1 +1,3 @@
-<title>Ingeniería de Software</title>
+<?php
+require("controladores/controlador.php")
+?>
