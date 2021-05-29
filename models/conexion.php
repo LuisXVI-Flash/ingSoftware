@@ -36,6 +36,6 @@ class Conexion
     }
 }
 
-$instancia=mysqli_connect("localhost","root","12345678","teca");
+#$instancia=mysqli_connect("localhost","root","12345678","teca");
 
 ?>

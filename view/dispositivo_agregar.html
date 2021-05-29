@@ -1,21 +1,5 @@
-<?php 
-include("models/Dispositivo.php");
-?>
-<title>Ingeniería de Software</title>
 
-<?php 
-
-	
-if($_GET){
-	$est=$_GET['estado'];
-	if($est="on"){
-
-	}
-	
-
-}else{
-	?>
-<form method="get">
+<form method="post" action="?vista=dispositivo">
 <table>
 	<thead><tr>
 		<td colspan="2">FORMULARIO </td>
@@ -37,7 +21,4 @@ if($_GET){
 	</tr>
 </table>
 </form>
-	<?php
-}
 
-?>

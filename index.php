@@ -1,3 +1,3 @@
 <?php
-require("controladores/controlador.php")
+require_once("controllers/controlador.php")
 ?>
