@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 27-05-2021 a las 02:04:00
+-- Tiempo de generación: 30-05-2021 a las 22:29:33
 -- Versión del servidor: 8.0.17
 -- Versión de PHP: 7.3.10
 
@@ -63,7 +63,10 @@ CREATE TABLE `clientes` (
 --
 
 INSERT INTO `clientes` (`idcliente`, `nombres`, `apellidos`, `correo`, `dni`, `celular`) VALUES
-(1, 'Isabella', 'Caballero Moreno', 'isabelitacancer@gmail.com', 78965412, 987456321);
+(1, 'Isabella', 'Caballero Moreno', 'isabelitacancer@gmail.com', 78965412, 987456321),
+(2, 'Aera', 'asrarasr', 'askdaksd@gmual.com', 13123123, 987654321),
+(22, 'Janeth', 'Huamantinco Asis', 'janethjrha@gmail.com', 78945612, 987654321),
+(23, 'Janeth', 'Huamantinco Asis', 'janethjrha@gmail.com', 78945612, 987654321);
 
 -- --------------------------------------------------------
 
@@ -84,7 +87,10 @@ CREATE TABLE `producto` (
 
 INSERT INTO `producto` (`idproducto`, `id`, `pac`, `estado`) VALUES
 (1, 654421, 'dkrt4554drfg', 1),
-(3, 52114, 'wjjdhfj657541', 0);
+(3, 52114, 'wjjdhfj657541', 0),
+(4, 4466521, '9898745656', 0),
+(5, 456879, '8789525321', 0),
+(6, 8521456, '6422', 0);
 
 -- --------------------------------------------------------
 
@@ -117,8 +123,8 @@ CREATE TABLE `trabajadores` (
   `nombres` varchar(30) NOT NULL,
   `apellidos` varchar(30) NOT NULL,
   `correo` varchar(50) NOT NULL,
-  `contraseña` int(10) NOT NULL,
-  `usuario` int(10) NOT NULL,
+  `contraseña` varchar(200) NOT NULL,
+  `usuario` varchar(200) NOT NULL,
   `idcargo_trabajador` int(11) NOT NULL,
   `estado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -128,8 +134,8 @@ CREATE TABLE `trabajadores` (
 --
 
 INSERT INTO `trabajadores` (`idtrabajador`, `nombres`, `apellidos`, `correo`, `contraseña`, `usuario`, `idcargo_trabajador`, `estado`) VALUES
-(4, 'Lucio', 'Ramirez Gonzales', 'lucio@gmail.com', 123, 1231, 1, 0),
-(5, 'Jose', 'Castro', 'jose@gmail.com', 987, 98754613, 3, 0);
+(4, 'Lucio', 'Ramirez Gonzales', 'lucio@gmail.com', '21232f297a57a5a743894a0e4a801fc3', 'LuisXVI', 1, 1),
+(5, 'Jose', 'Castro', 'jose@gmail.com', '987', '98754613', 3, 0);
 
 --
 -- Índices para tablas volcadas
@@ -182,13 +188,13 @@ ALTER TABLE `cargo_trabajador`
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `idcliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idcliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `idproducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idproducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `solicitud`

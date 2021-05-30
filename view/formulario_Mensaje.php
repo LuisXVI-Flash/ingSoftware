@@ -2,7 +2,7 @@
 //formMessageSistema.php
 class formMensajeSistema{
     public function formMensajeSistemaShow($mensaje,$link){
-            include 'cabecera.php';
+            include 'layout/header.php';
         ?>
         
         <div>
@@ -11,7 +11,7 @@ class formMensajeSistema{
         </div>
         
     <?php
-        include_once("../shared/pie.php");
+        include_once("layout/footer.php");
     }
     public function formMensajeSistemaShow1($mensaje,$link,$value){
         include 'cabecera.php';
@@ -32,7 +32,6 @@ class formMensajeSistema{
 
     public function accesso_denegado() {
         $stylesheet = true; 
-        include 'cabecera.php';
     ?>
     <body>        
         <div class="container">

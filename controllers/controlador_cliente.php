@@ -1,43 +1,52 @@
 <?php 
-include_once("../models/Cliente.php");
-$cliente = new Cliente;
-$nombres = $_POST['nombres'];
-$apellidos = $_POST['apellidos'];
-$correo = $_POST['correo'];
-$dni = $_POST['dni'];
-$celular = $_POST['celular'];
-//$patron1 = "[a-zA-Z]{2,30}";
 
-$cliente -> registrar_cliente($nombres, $apellidos, $correo, $dni, $celular);
-echo "Se agregó a al base de datos";
-/*if (preg_match($patron1, $nombres)){
-    echo "listo";
-}
-else{pero 
-    echo "No debe tener números en esta sección";
-}*/
-/*if (preg_match(, $apellidos)){
+if(isset($_POST['Agregar'])){
+    $nombres = $_POST['nombres'];
+    $apellidos = $_POST['apellidos'];
+    $correo = $_POST['correo'];
+    $dni = $_POST['dni'];
+    $celular = $_POST['celular'];
+    if($nombres!= null && $apellidos != null && $correo!=null && $dni!=null && $celular!=null){
+        include_once("../models/Cliente.php");
+        $cliente = new Cliente;
+        $cliente -> registrar_cliente($nombres, $apellidos, $correo, $dni, $celular);
+        session_start();
+        $_SESSION["estado"] = true;
+        $_SESSION["mensaje"] = "Cliente agregado correctamente";
+        header("Location: ../view/FormularioCliente.php");
+    }    
+}else if (isset($_POST['Editar'])) {
+    $id = $_GET['id'];
+    include_once("../models/Cliente.php");
+    include_once("../view/editar_cliente.php");
+    $obj_cl = new Cliente;
+    $cliente = $obj_cl->obtener_un_cliente($id);
+    $formEditar = new editar_cliente;
+    $formEditar->editar_cliente_show($cliente);
+    
+}else if(isset($_POST['test'])){
+    $a = $_POST['idcliente'];
+    $nombres = $_POST['nombres'];
+    $apellidos = $_POST['apellidos'];
+    $correo = $_POST['correo'];
+    $dni = $_POST['dni'];
+    $celular = $_POST['celular'];
 
+    //deberían ir restricciones???
+    include_once("../models/Cliente.php");
+    $obj_act = new Cliente;
+    $obj_act->editarcliente($a,$nombres,$apellidos,$correo,$dni,$celular);
+    ?>
+
+    <script type="text/javascript">
+        alert("Cliente modificado exitosamente");
+    </script>
+
+<?php
+    include_once("../view/Formulario_listar_cliente.php");
+    $cliente = new Cliente;
+    $array= $cliente->listar_cliente();
+    $cli=new Formulario_listar_cliente;
+    $cli->Formulario_listar_clienteShow($array);
 }
-else{
-    print "No debe tener números en esta sección";
-}
-if (preg_match(, $correo)){
-    
-}
-else{
-    print "Debe presentar las caracteristicas de un correo";
-}
-if (preg_match(, $dni)){
-    
-}
-else{
-    print "Debe tener 8 digitos";
-}
-if (preg_match(, $celular)){
-    
-}
-else{
-    print "Debe presentar números";
-}*/
 ?>

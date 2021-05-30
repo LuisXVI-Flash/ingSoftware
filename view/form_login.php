@@ -6,9 +6,9 @@ class formIdentificarUsuario
     {
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es-PE">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-5">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
     <title>TECA PERÚ S.A.C.</title>
