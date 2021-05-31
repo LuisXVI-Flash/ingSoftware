@@ -2,7 +2,7 @@
 <?php 
 
 if(isset($_POST["enviar"])){
-    if(isset($_POST["id"]) && isset($_POST["pac"]) && !empty($_POST["id"]) && !empty($_POST["pac"])){
+    if(isset($_POST["id"]) && isset($_POST["pac"])){
         $valor=0;
         if(isset($_POST["estado"]) && $_POST["estado"]=="on"){
             $valor=1;
@@ -14,9 +14,6 @@ if(isset($_POST["enviar"])){
         $_SESSION["estado"] = true;
         $_SESSION["mensaje"] = "Dispositivo agregado correctamente";
         header("Location: ../view/dispositivo_agregar.php");
-    }else{
-        header("Location: ../view/dispositivo_agregar.php");
     }
 }
-
 ?>
