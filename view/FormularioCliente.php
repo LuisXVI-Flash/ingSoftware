@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php 
     /*class FormularioCLiente{
         public function formularioClienteShow(){*/
@@ -93,6 +94,22 @@
                </div>
             </div>   
             </div>
+=======
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styles.css">
+    <title>TECA</title>
+<f/head>
+<body>
+    <form action="../controller/controlador_cliente.php" method="POST">
+    <h1>Registro de Clientes</h1>
+        <div>
+            <label for = "nombres">Nombres</label>
+            <input name="nombres" placeholder="Ingrese Nombre" id="nombres" type= "text" required pattern="[A-Za-z ]{2,30}" title="Sebe contener letras de la a-z, mayúsculas o minúsculas"> 
+>>>>>>> parent of 1c6f9db (unificacion)
         </div>
     </div>
 </div>
