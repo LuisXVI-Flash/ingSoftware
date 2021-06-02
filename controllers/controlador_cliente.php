@@ -24,6 +24,24 @@ if(isset($_POST['Agregar'])){
     $formEditar = new editar_cliente;
     $formEditar->editar_cliente_show($cliente);
     
+}else if(isset($_POST['Eliminar'])){
+    $id=$_GET['id'];
+    include_once("../models/Cliente.php");
+    $cl = new Cliente;
+    $cl->eliminarcliente($id);
+    ?>
+
+    <script type="text/javascript">
+        alert("Cliente eliminado exitosamente");
+    </script>
+
+<?php
+    include_once("../view/Formulario_listar_cliente.php");
+    $cliente = new Cliente;
+    $array= $cliente->listar_cliente();
+    $cli=new Formulario_listar_cliente;
+    $cli->Formulario_listar_clienteShow($array);
+
 }else if(isset($_POST['test'])){
     $a = $_POST['idcliente'];
     $nombres = $_POST['nombres'];
@@ -48,5 +66,13 @@ if(isset($_POST['Agregar'])){
     $array= $cliente->listar_cliente();
     $cli=new Formulario_listar_cliente;
     $cli->Formulario_listar_clienteShow($array);
+}else if($_GET['value']=='Regresar'){
+    include_once("../view/Formulario_listar_cliente.php");
+    include_once("../models/Cliente.php");
+    $cliente = new Cliente;
+    $array= $cliente->listar_cliente();
+    $cli=new Formulario_listar_cliente;
+    $cli->Formulario_listar_clienteShow($array);
 }
+
 ?>

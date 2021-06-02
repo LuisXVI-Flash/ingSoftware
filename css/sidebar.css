@@ -1,0 +1,7 @@
+.container__dispositivo{
+    position: relative;
+}
+.sidebar__content{
+    position: absolute;
+    background-color: #0086EB;
+}

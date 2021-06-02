@@ -6,9 +6,9 @@ class editar_cliente{
         $vista = new vista_principal;
         $vista->vista_principalShow();
 ?>
-<div class="col-lg-9"> 
-    <div class="container">
-    <form action="../controllers/controlador_cliente.php" method="POST">
+<div class="container__cliente">
+<h2>Editar Cliente</h2>
+    <form action="../controllers/controlador_cliente.php" method="POST" class="container_formulario">
         <label>id cliente: </label>
         <input type="text" name="idcliente" value="<?php echo $cliente['idcliente'] ?>"><br>
 
@@ -22,26 +22,23 @@ class editar_cliente{
         <input type="text" name="correo" value="<?php echo $cliente['correo'] ?>"><br>
 
         <label>dni: </label>
-        <input type="text" name="dni"  value="<?php echo $cliente['dni'] ?>"><br>
+        <input type="text" name="dni" value="<?php echo $cliente['dni'] ?>"><br>
 
         <label>celular: </label>
-        <input type="text" name="celular"  value="<?php echo $cliente['celular'] ?>"><br>
+        <input type="text" name="celular" value="<?php echo $cliente['celular'] ?>"><br>
 
         <br>
 
-        <input type="submit" name="test" value="GUARDAR"><br />
-
+        <input type="submit" name="test" class="btn btn-secondary" value="GUARDAR"><br />
     </form>
-    </div>
 </div>
-
 <?php
 
 //pasar elvalor de los label a variables
 
 
 //funcion que llama el boton guardar
-
+include_once('../view/layout/footer.php');
 ?>
 
 <?php
@@ -53,3 +50,4 @@ if (array_key_exists('test', $_POST)) {
 }
 }
 ?>
+

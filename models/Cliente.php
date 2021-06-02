@@ -46,5 +46,9 @@
             $resultadodd = mysqli_query($instancia, "UPDATE clientes SET nombres='$nombres',
             apellidos='$apellidos',correo='$correo',dni='$dni',celular='$celular' WHERE idcliente=$a");
         }
+        public function eliminarcliente($a){
+            $instancia = Conexion::obtenerConexion();
+            $resultadodd = mysqli_query($instancia, " DELETE FROM clientes WHERE idcliente = $a");
+        }
     }
 ?>

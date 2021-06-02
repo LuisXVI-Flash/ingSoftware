@@ -8,64 +8,74 @@ $obj->vista_principalShow();
 
 if(empty($_SESSION)){
     ?>
-     <style type="text/css">
-         .col-lg-3{
-             display: none !important;
-         }
-     </style> 
-    <?php
+<style type="text/css">
+.col-lg-3 {
+    display: none !important;
+}
+</style>
+<?php
     include_once("../view/formulario_Mensaje.php");
     (new formMensajeSistema())->accesso_denegado();
     exit;
 }
 
 ?>
+ 
 
-<div class="col-lg-9"> 
-    <div class="container">
-            <table class="table table-borderless primary">
-                <thead>
-                    <tr>
-                        <th scope="col">idcliente</th>
-                        <th scope="col">nombres</th>
-                        <th scope="col">apellidos</th>
-                        <th scope="col">correo</th>
-                        <th scope="col">dni</th>
-                        <th scope="col">Celular</th>
-                    </tr>
-                </thead>
+<br><h4 style="text-align: center;" class="card-title">Lista de clientes</h4><br><br>
+<div class="content__table">
+  <form action="../controllers/getCliente.php" method="post">
+    <input type="submit" name="btngestionarr" value="Agregar" class="btn btn-primary mx-2" style="float: right">
+</form>  
+</div>
+<div class="content__table">
 
-                <tbody>
+    <table class="table table-hover" style="width: 60%;">
+    
+        <thead>
+            <tr>
+                <th scope="col">Código</th>
+                <th scope="col">Nombres</th>
+                <th scope="col">Apellidos</th>
+                <th scope="col">Correo</th>
+                <th scope="col">DNI</th>
+                <th scope="col">Celular</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
 
-                    <?php
+        <tbody>
+
+            <?php
                         foreach($array as $array){
                     ?>
-                            <tr>
-                <form action="../controllers/controlador_cliente.php?id=<?php echo $array['idcliente'] ?>" method="POST">
+            <tr>
+                <form action="../controllers/controlador_cliente.php?id=<?php echo $array['idcliente'] ?>"
+                    method="POST">
                     <td scope="row"><?php echo $array['idcliente'] ?></td>
                     <td scope="row"><?php echo $array['nombres'] ?></td>
                     <td scope="row"><?php echo $array['apellidos'] ?></td>
                     <td scope="row"><?php echo $array['correo'] ?></td>
                     <td scope="row"><?php echo $array['dni'] ?></td>
                     <td scope="row"><?php echo $array['celular'] ?></td>
-                    <td><input type="submit" name="Editar" value="Editar" class="btn btn-primary">
-						<input type="submit" name="Eliminar" value="Eliminar" class="btn btn-secondary">
+                    <td class="content__btn">
+                        <input type="submit" name="Editar" value="Editar" class="btn  btn-secondary btn-sm">
+                        <input type="submit" name="Eliminar" value="Eliminar" class="btn btn-primary btn-sm">
                     </td>
                 </form>
             </tr>
-                    <?php    }
+            <?php    }
                     ?>
 
-                    <?php
+            <?php
 
                     ?>
-                
-                    <?php
+
+            <?php
                     
                     ?>
-                </tbody>
-            </table>
-    </div>
+        </tbody>
+    </table>
 </div>
 <?php 
  include '../view//layout/footer.php';

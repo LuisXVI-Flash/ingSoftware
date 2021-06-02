@@ -27,20 +27,23 @@
     ></script>
     <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/styles.css">
+    <!-- <script src="../js/toggle.js"></script> -->
   </head>
   <body>
     <?php
             if (isset($_SESSION)) {
               ?>
-    <nav class="navbar navbar-light" style="background-color: #51afda">
+    <nav class="navbar navbar-light" style="background-color: #003862">
       <div class="container-fluid">
         <ul class="nav justify-content-start">
           <li class="nav-item">
             <a
-              class="nav-link text-light"
-              href="../securityModule/getUsuario.php"
-              >TECA PERU S.A.C</a
-            >
+              href="#"
+              ><img src="../assets/teca-white.png" alt="logo-teca" width="120px" height="40px"></a>
+          </li>>
+          <li class="nav-item">
+          <button class="btn_toggle" id="toggle"><i class="fas fa-bars" style="height: 50px;"></i></button>
           </li>
         </ul>
 
@@ -50,12 +53,12 @@
               class="iconify"
               data-inline="false"
               data-icon="bx:bx-user"
-              style="color: #5c636a; font-size: 40px"
+              style="color: #FFFF; font-size: 50px"
             ></span>
           </li>
           <li class="nav-item">
-            <p class="nav-link text-center" style="color: #5c636a">
-              Bienvenid@,
+            <p class="nav-link text-center" style="color: #FFFFFF">
+              Usuario:
               <?php echo $_SESSION['trabajador']?><br /><?php echo $_SESSION["nombreCargo"]?>
             </p>
           </li>
@@ -64,17 +67,18 @@
           </li>
           <li class="nav-item">
             <p></p>
-            <a class="btn btn-secondary" href="../shared/cerrarSesion.php?view="
+            <a class="btn btn-light btn-sm disabled" href="../shared/cerrarSesion.php?view="
               >Cerrar Sesion</a
             >
+           
           </li>
         </ul>
       </div>
     </nav>
-    <div class="row">
-      <div class="col-lg-3">
+    <div class="row container__dispositivo">
+      <!-- <div class="col-lg-3">
         <div class="container-fluid">
-          <nav class="nav flex-column">
+          <nav class="nav flex-column"> -->
             <?php
             }
             ?>
