@@ -38,6 +38,22 @@ class Dispositivo extends Conexion{
             $conexion -> close();
         
 	}
+	public function eliminar($id){
+		$consulta = "DELETE FROM producto WHERE '{$id}'";
+		$conexion = $this -> obtenerConexion();
+		$resultado = $conexion -> query($consulta);
+		$conexion -> close();
+	
+	}
+	public function actualizar($id,$pack,$estado){
+
+			
+		$consulta = "INSERT INTO producto VALUES ('','$id', '$pack', '$estado')";
+		$conexion = $this -> obtenerConexion();
+		$resultado = $conexion -> query($consulta);
+		$conexion -> close();
+	
+	}	
 	public function getProductos(){
 
 		$vector = array();

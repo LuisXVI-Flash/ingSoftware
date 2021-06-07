@@ -1,5 +1,4 @@
 <?php
-	include("./view/form_login.php"); 
-	$objformIdentificarUsuario = new formIdentificarUsuario;
-	$objformIdentificarUsuario -> formIdentificarUsuarioShow();
+
+	require_once("controllers/controlador_sesion.php");
 ?>

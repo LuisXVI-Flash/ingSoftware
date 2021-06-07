@@ -1,5 +1,5 @@
 <?php 
-
+include_once("../models/Sesion.php");
 if(isset($_POST['Agregar'])){
     $nombres = $_POST['nombres'];
     $apellidos = $_POST['apellidos'];

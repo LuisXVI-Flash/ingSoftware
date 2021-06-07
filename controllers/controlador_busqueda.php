@@ -2,6 +2,7 @@
 // require_once('conexion.php');
 include_once("../models/Dispositivo.php");
 include_once("../models/conexion.php");
+include_once("../models/Sesion.php");
 $method = $_SERVER['REQUEST_METHOD'];
 
 if($method=="POST"){

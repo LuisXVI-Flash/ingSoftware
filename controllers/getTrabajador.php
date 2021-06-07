@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 
 if(isset($_POST['bntAceptar'])){
     $login = trim($_POST['login']);
@@ -15,6 +15,10 @@ if(isset($_POST['bntAceptar'])){
         $objMessaje = new formMensajeSistema;
         $objMessaje -> formMensajeSistemaShow("Los datos ingresados no son validos","../index.php");
     }
+}elseif(isset($_GET['Operacion']) and $_GET["Operacion"]=="Cerrar") {
+    include_once("../models/Sesion.php");
+    cerrar_sesion();
+    header("location: ../index.php");
 }else{
     include_once("../view/formulario_Mensaje.php");
     $objMessaje = new formMensajeSistema;

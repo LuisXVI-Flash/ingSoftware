@@ -1,6 +1,6 @@
 
 <?php 
-
+include_once("../models/Sesion.php");
 if(isset($_POST["Guardar"])){
     $id = $_POST["id"];
     $pack = $_POST["pac"];

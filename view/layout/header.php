@@ -32,14 +32,14 @@
   </head>
   <body>
     <?php
-            if (isset($_SESSION)) {
+            if (isset($_SESSION['idcargo'])) {
               ?>
     <nav class="navbar navbar-light" style="background-color: #003862">
       <div class="container-fluid">
         <ul class="nav justify-content-start">
           <li class="nav-item">
             <a
-              href="#"
+              href="http://localhost/ingSoftware/index.php"
               ><img src="../assets/teca-white.png" alt="logo-teca" width="120px" height="40px"></a>
           </li>>
           <li class="nav-item">
@@ -66,8 +66,7 @@
             <p class="nav-link"></p>
           </li>
           <li class="nav-item">
-            <p></p>
-            <a class="btn btn-light btn-sm disabled" href="../shared/cerrarSesion.php?view="
+            <a class="btn btn-light btn-sm " href="../controllers/getTrabajador.php?Operacion=Cerrar"
               >Cerrar Sesion</a
             >
            

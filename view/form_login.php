@@ -45,11 +45,6 @@ class formIdentificarUsuario
     <title>TECA PERÚ S.A.C.</title>
 </head>
 <body style="background-color:#F8F9FC;">
-	<?php 
-			session_start();
-			// print_r($_SESSION);
-			session_destroy(); 
-	?>
 	<form name="form1" method="post" action="controllers/getTrabajador.php">
 		<br><br>
 		<div class="position-absolute top-40 start-50 translate-middle">
