@@ -104,7 +104,7 @@ if(isset($_POST["Guardar"])){
         alert("Producto modificado exitosamente");
     </script>
 <?php
-    header("Location: ../view/listar_dispositivo.html");
+    header("Location: ../view/listar_dispositivo.php");
 }else if (isset($_POST['Eliminar'])){
     $id=$_GET['idproducto'];
     echo $id;
@@ -118,7 +118,7 @@ if(isset($_POST["Guardar"])){
     </script>
 
 <?php
-    header("Location: ../view/listar_dispositivo.html");
+    header("Location: ../view/listar_dispositivo.php");
 }else if(isset($_POST["Regresar"])){
     header("Location: ../view/listar_dispositivo.php");
 }
