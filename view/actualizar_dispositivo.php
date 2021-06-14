@@ -1,25 +1,25 @@
 <?php
 class editar_dispositivo{
-    public function editar_dispositivo_show($cliente){
+    public function editar_dispositivo_show($dispositivo){
         session_start();
         include_once("../view/vista_principal.php");
         $vista = new vista_principal;
         $vista->vista_principalShow();
 ?>
 <div class="container container__cliente">
-    <form action="../controllers/controlador_cliente.php" method="POST">
+    <form action="../controllers/controlador_dispositivo.php?idproducto=<?php echo $dispositivo['idproducto']?>" method="POST">
         <label>Id dispositivo: </label>
-        <input type="text" name="idcliente" value="<?php echo $cliente['idcliente'] ?>"><br>
+        <input type="text" name="id" value="<?php echo $dispositivo['id'] ?>"><br>
 
         <label>Pack: </label>
-        <input type="text" name="nombres" value="<?php echo $cliente['nombres'] ?>"><br>
+        <input type="text" name="pac" value="<?php echo $dispositivo['pac'] ?>"><br>
 
         <label>Estado: </label>
-        <input type="text" name="apellidos" value="<?php echo $cliente['apellidos'] ?>"><br>
+        <input type="text" name="estado" value="<?php echo $dispositivo['estado'] ?>"><br>
 
         <br>
 
-        <input type="submit" name="test" value="GUARDAR"><br />
+        <input type="submit" name="actualizar" value="GUARDAR"><br />
     </form>
 </div>
 <?php
