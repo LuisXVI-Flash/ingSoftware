@@ -22,15 +22,19 @@ window.addEventListener("load", () => {
       } else {
         // const datos=JSON.stringify(data);
         for (let i = 0; i < data.length; i++) {
-          
+        
           template.querySelector('.trow #id').textContent = data[i].id;
-          template.querySelector('.trow #nombre').textContent = data[i].nombre;
-          template.querySelector('.trow #precio').textContent = data[i].precio;
+          template.querySelector('.trow #pac').textContent = data[i].pac;
+          template.querySelector('.trow #estado').textContent = data[i].estado;
+          // template.querySelector('.trow #idproducto').textContent = data[i].idproducto;
+          
+          template.querySelector('.trow #editar').setAttribute("href",`index.php?vista=dispositivo&id=${data[i].idproducto}&operacion=editar`);
+          template.querySelector('.trow #eliminar').setAttribute("href",`index.php?vista=dispositivo&id=${data[i].idproducto}&operacion=eliminar`);
           const clone=template.cloneNode(true);
           fragment.appendChild(clone);
         }
         alerta.append(fragment)
-        mensaje.innerHTML = ``;
+       // mensaje.innerHTML = ``;
       }
     });
   }
@@ -59,9 +63,14 @@ window.addEventListener("load", () => {
           }else{
             alerta.innerHTML=``;
           for (let i = 0; i < data.length; i++) {
-            template.querySelector('.trow #id').textContent = data[i].id;
-            template.querySelector('.trow #nombre').textContent = data[i].nombre;
-            template.querySelector('.trow #precio').textContent = data[i].precio;
+            
+          template.querySelector('.trow #id').textContent = data[i].id;
+          template.querySelector('.trow #pac').textContent = data[i].pac;
+          template.querySelector('.trow #estado').textContent = data[i].estado;
+          // template.querySelector('.trow #idproducto').textContent = data[i].idproducto;
+          
+          template.querySelector('.trow #editar').setAttribute("href",`index.php?vista=dispositivo&id=${data[i].idproducto}&operacion=editar`);
+          template.querySelector('.trow #eliminar').setAttribute("href",`index.php?vista=dispositivo&id=${data[i].idproducto}&operacion=eliminar`);
             const clone=template.cloneNode(true);
             fragment.appendChild(clone);
           }

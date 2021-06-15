@@ -4,7 +4,5 @@
     </div>
     </nav>
     <script src="./js/toggle.js"></script>
-    <script src="./js/jquery.min.js"></script>
-    <script src="./js/busqueda.js"></script>
     </body>
 </html>

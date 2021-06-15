@@ -25,7 +25,7 @@ if(isset($_POST["btngestionarr"]) or isset($_POST["verificar_usuario"] ) or isse
 else if (isset($_POST['Editar'])) {
     $id = $_GET['id'];
 
-    include_once("./view/editar_cliente.html");
+    
     $obj_cl = new Cliente;
     $cliente = $obj_cl->obtener_un_cliente($id);
     echo $cliente['dni'];
@@ -37,7 +37,28 @@ else if (isset($_POST['Editar'])) {
     $cl = new Cliente;
     $cl->eliminarcliente($id);
     header("Location: index.php?vista=cliente");
-} else{
+}else if(isset($_POST['test'])){
+        $a = $_POST['idcliente'];
+        $nombres = $_POST['nombres'];
+        $apellidos = $_POST['apellidos'];
+        $correo = $_POST['correo'];
+        $dni = $_POST['dni'];
+        $celular = $_POST['celular'];
+    
+        //deberían ir restricciones???
+    
+        $obj_act = new Cliente;
+        $obj_act->editarcliente($a,$nombres,$apellidos,$correo,$dni,$celular);
+         ?>
+    
+         <script type="text/javascript">
+             alert("Cliente modificado exitosamente");
+         </script>
+    
+     <?php
+        header("Location: index.php?vista=cliente");
+        
+    } else{
     $array=listar_cliente();
 
 require_once("./view/Formulario_listar_cliente.html");

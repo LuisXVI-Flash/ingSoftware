@@ -18,6 +18,7 @@ if($method == "GET") {
     if(!empty($_GET['id'])){
       $api = new Dispositivo();
       $obj = $api->getProductos();
+      
       $json = json_encode($obj);
       echo $json;     
 
@@ -25,6 +26,7 @@ if($method == "GET") {
       $vector = array();
       $api = new Dispositivo();
       $vector = $api->getProductos();
+      
       $json = json_encode($vector);
       echo $json;
     }
