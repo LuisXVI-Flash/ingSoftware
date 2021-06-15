@@ -44,8 +44,7 @@ if(isset($_POST["Guardar"])){
         $d->eliminardispositivo($id);
         header("Location: index.php?vista=dispositivo");
       }
-}else if(isset($_POST['actualizar'])and isset($_GET['id'])){
-    
+}else if(isset($_POST['actualizar'])){
     $idproducto = $_GET['id'];
     $id = $_POST['idproducto'];
     $pac = $_POST['pac'];
