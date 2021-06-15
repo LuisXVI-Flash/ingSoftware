@@ -1,5 +1,5 @@
 <?php 
-    include_once ("conexion.php");
+    
     Class Cliente extends Conexion {
         public function registrar_cliente($nombres, $apellidos, $correo, $dni, $celular) {
             $consulta = "INSERT INTO clientes (nombres, apellidos, correo, dni, celular) VALUES ('$nombres', '$apellidos', '$correo', '$dni', '$celular')";
@@ -9,16 +9,7 @@
             //return $resultado -> fetch_all();
         }
 
-        public function listar_cliente(){
-
-            $instancia = Conexion::obtenerConexion();
-            $resultadoa = mysqli_query($instancia, "SELECT *  FROM clientes");
-
-            while ($consultaa = mysqli_fetch_array($resultadoa)) {
-                $r[] = $consultaa;
-            }
-            return $r;
-        }
+        
 
         public function consultar_cliente($idd){
 
@@ -50,5 +41,15 @@
             $instancia = Conexion::obtenerConexion();
             $resultadodd = mysqli_query($instancia, " DELETE FROM clientes WHERE idcliente = $a");
         }
+    }
+    function listar_cliente(){
+
+        $instancia = Conexion::obtenerConexion();
+        $resultadoa = mysqli_query($instancia, "SELECT *  FROM clientes");
+        
+        while ($consultaa = mysqli_fetch_array($resultadoa)) {
+            $r[] = $consultaa;
+        }
+        return $r;
     }
 ?>

@@ -1,5 +1,5 @@
 <?php
-    include_once("conexion.php");
+    
     class Cargo_Trabajador extends conexion{
         public function ECargo(){
             $this -> conectar();
@@ -13,6 +13,7 @@
 
             $datos = array();
             if($row = mysqli_fetch_array($resultado)){
+                
                 $_SESSION['idcargo']=$row[0];
                 $_SESSION['nombreCargo']=$row[1];
                 $_SESSION['trabajador']=$row[2];

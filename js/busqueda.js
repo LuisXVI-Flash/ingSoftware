@@ -2,7 +2,7 @@ $(buscar_datos());
 
 function buscar_datos(verificador, consulta){
     $.ajax({
-        url: '../controllers/controlador_dispositivo.php',
+        url: './controllers/controlador_dispositivo.php',
         type: 'POST',
         dataType: 'html',
         data: {verificador: verificador, consulta: consulta},

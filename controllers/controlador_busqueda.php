@@ -1,7 +1,7 @@
 <?php
 // require_once('conexion.php');
-include_once("../models/Dispositivo.php");
-include_once("../models/conexion.php");
+require_once("..\models\Conexion.php");
+require_once("..\models\Dispositivo.php");
 $method = $_SERVER['REQUEST_METHOD'];
 
 if($method=="POST"){
@@ -18,6 +18,7 @@ if($method == "GET") {
     if(!empty($_GET['id'])){
       $api = new Dispositivo();
       $obj = $api->getProductos();
+      
       $json = json_encode($obj);
       echo $json;     
 
@@ -25,6 +26,7 @@ if($method == "GET") {
       $vector = array();
       $api = new Dispositivo();
       $vector = $api->getProductos();
+      
       $json = json_encode($vector);
       echo $json;
     }

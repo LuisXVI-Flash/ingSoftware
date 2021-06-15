@@ -1,78 +1,109 @@
 <?php 
+require_once("./models/Cliente.php");
+require_once("./models/Conexion.php");
+require_once("./view/vista_principal.html");
+//botones
+if(isset($_POST["btngestionarr"]) or isset($_POST["verificar_usuario"] ) or isset($_POST["guardar_usuario"]) or isset($_POST["contrasenia_usuario"]) ){
+    require_once("./view/FormularioCliente.html");
 
-if(isset($_POST['Agregar'])){
+}elseif(isset($_POST['Agregar'])){
     $nombres = $_POST['nombres'];
     $apellidos = $_POST['apellidos'];
     $correo = $_POST['correo'];
     $dni = $_POST['dni'];
     $celular = $_POST['celular'];
     if($nombres!= null && $apellidos != null && $correo!=null && $dni!=null && $celular!=null){
-        include_once("../models/Cliente.php");
+    
         $cliente = new Cliente;
         $cliente -> registrar_cliente($nombres, $apellidos, $correo, $dni, $celular);
-        session_start();
+        
         $_SESSION["estado"] = true;
         $_SESSION["mensaje"] = "Cliente agregado correctamente";
-        header("Location: ../view/FormularioCliente.php");
+        header("Location: index.php?vista=cliente");
     }    
-}else if (isset($_POST['Editar'])) {
+}
+else if (isset($_POST['Editar'])) {
     $id = $_GET['id'];
-    include_once("../models/Cliente.php");
-    include_once("../view/editar_cliente.php");
+
+    
     $obj_cl = new Cliente;
     $cliente = $obj_cl->obtener_un_cliente($id);
-    $formEditar = new editar_cliente;
-    $formEditar->editar_cliente_show($cliente);
+    echo $cliente['dni'];
+    require_once("./view/editar_cliente.html");
     
 }else if(isset($_POST['Eliminar'])){
     $id=$_GET['id'];
-    include_once("../models/Cliente.php");
+
     $cl = new Cliente;
     $cl->eliminarcliente($id);
-    ?>
-
-    <script type="text/javascript">
-        alert("Cliente eliminado exitosamente");
-    </script>
-
-<?php
-    include_once("../view/Formulario_listar_cliente.php");
-    $cliente = new Cliente;
-    $array= $cliente->listar_cliente();
-    $cli=new Formulario_listar_cliente;
-    $cli->Formulario_listar_clienteShow($array);
-
+    header("Location: index.php?vista=cliente");
 }else if(isset($_POST['test'])){
-    $a = $_POST['idcliente'];
-    $nombres = $_POST['nombres'];
-    $apellidos = $_POST['apellidos'];
-    $correo = $_POST['correo'];
-    $dni = $_POST['dni'];
-    $celular = $_POST['celular'];
+        $a = $_POST['idcliente'];
+        $nombres = $_POST['nombres'];
+        $apellidos = $_POST['apellidos'];
+        $correo = $_POST['correo'];
+        $dni = $_POST['dni'];
+        $celular = $_POST['celular'];
+    
+        //deberían ir restricciones???
+    
+        $obj_act = new Cliente;
+        $obj_act->editarcliente($a,$nombres,$apellidos,$correo,$dni,$celular);
+         ?>
+    
+         <script type="text/javascript">
+             alert("Cliente modificado exitosamente");
+         </script>
+    
+     <?php
+        header("Location: index.php?vista=cliente");
+        
+    } else{
+    $array=listar_cliente();
 
-    //deberían ir restricciones???
-    include_once("../models/Cliente.php");
-    $obj_act = new Cliente;
-    $obj_act->editarcliente($a,$nombres,$apellidos,$correo,$dni,$celular);
+require_once("./view/Formulario_listar_cliente.html");
+}
+
+
+//operaciones
+
+
     ?>
 
-    <script type="text/javascript">
-        alert("Cliente modificado exitosamente");
-    </script>
 
-<?php
-    include_once("../view/Formulario_listar_cliente.php");
-    $cliente = new Cliente;
-    $array= $cliente->listar_cliente();
-    $cli=new Formulario_listar_cliente;
-    $cli->Formulario_listar_clienteShow($array);
-}else if($_GET['value']=='Regresar'){
-    include_once("../view/Formulario_listar_cliente.php");
-    include_once("../models/Cliente.php");
-    $cliente = new Cliente;
-    $array= $cliente->listar_cliente();
-    $cli=new Formulario_listar_cliente;
-    $cli->Formulario_listar_clienteShow($array);
-}
+
+ <?php
+
+
+// }else if(isset($_POST['test'])){
+//     $a = $_POST['idcliente'];
+//     $nombres = $_POST['nombres'];
+//     $apellidos = $_POST['apellidos'];
+//     $correo = $_POST['correo'];
+//     $dni = $_POST['dni'];
+//     $celular = $_POST['celular'];
+
+//     //deberían ir restricciones???
+
+//     $obj_act = new Cliente;
+//     $obj_act->editarcliente($a,$nombres,$apellidos,$correo,$dni,$celular);
+//     ?>
+
+     <script type="text/javascript">
+//         alert("Cliente modificado exitosamente");
+//     </script>
+
+// <?php
+//     include_once("./view/Formulario_listar_cliente.html");
+//     $cliente = new Cliente;
+//     $array= $cliente->listar_cliente();
+    
+// }else if($_GET['value']=='Regresar'){
+//     include_once("./view/Formulario_listar_cliente.html");
+
+//     $cliente = new Cliente;
+//     $array= $cliente->listar_cliente();
+    
+// }
 
 ?>

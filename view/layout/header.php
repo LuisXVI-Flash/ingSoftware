@@ -26,20 +26,20 @@
     ></script>
     <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="./css/styles.css">
     <!-- <script src="../js/toggle.js"></script> -->
   </head>
   <body>
     <?php
-            if (isset($_SESSION)) {
+            if (isset($_SESSION["idcargo"])) {
               ?>
     <nav class="navbar navbar-light" style="background-color: #003862">
       <div class="container-fluid">
         <ul class="nav justify-content-start">
           <li class="nav-item">
             <a
-              href="#"
-              ><img src="../assets/teca-white.png" alt="logo-teca" width="120px" height="40px"></a>
+              href="index.php"
+              ><img src="./assets/teca-white.png" alt="logo-teca" width="120px" height="40px"></a>
           </li>>
           <li class="nav-item">
           <button class="btn_toggle" id="toggle"><i class="fas fa-bars" style="height: 50px;"></i></button>
@@ -66,9 +66,7 @@
           </li>
           <li class="nav-item">
             <p></p>
-            <a class="btn btn-light btn-sm disabled" href="../shared/cerrarSesion.php?view="
-              >Cerrar Sesion</a
-            >
+            <a class="btn btn-light btn-sm " href="?cerrar">Cerrar Sesion</a>
            
           </li>
         </ul>

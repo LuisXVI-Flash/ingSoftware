@@ -1,5 +1,5 @@
 <?php
-include_once ("conexion.php");
+
 class Dispositivo extends Conexion{
 	private $id;
 	private $pac;
@@ -64,9 +64,12 @@ class Dispositivo extends Conexion{
 
 	public function obtener_un_dispositivo($id){
 		$instancia = Conexion::obtenerConexion();
-		$sql="SELECT * FROM  producto WHERE id=$id";
+		//si tienes error cambiar idproducto por id
+		$sql="SELECT * FROM  producto WHERE idproducto=$id";
 		$resultadoa = mysqli_query($instancia, $sql);
+		
 		$consultaxd = mysqli_fetch_array($resultadoa);
+		
 		//var_dump('<pre>',$consultaxd,'</pre');
 		return $consultaxd;
 	}
