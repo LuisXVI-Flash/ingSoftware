@@ -8,7 +8,7 @@ class Conexion
 	{
 		if ( self::$instancia == null )
 		{
-			self::$instancia = new mysqli("localhost","root","12345678","teca");
+			self::$instancia = new mysqli("127.0.0.1","root","12345678","teca");
 		}
 
 		return self::$instancia;
