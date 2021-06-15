@@ -6,7 +6,7 @@
 </style>
 
 
-
+<div class="container__grid1">
 <br><h4 style="text-align: center;" class="card-title">Lista de clientes</h4><br><br>
 <div class="content__table">
   <form action="index.php?vista=cliente" method="post">
@@ -15,7 +15,7 @@
 </div>
 <div class="content__table">
     
-    <table class="table table-hover" style="width: 60%;">
+    <table class="table table-hover my-4" style="width: 70%;">
     
         <thead>
             <tr>
@@ -34,7 +34,7 @@
             <?php
             foreach($array as $array){
         ?>
-            <tr>
+            <tr class="my-5">
                 <form action="index.php?vista=cliente&id=<?php echo $array['idcliente'] ?>"
                     method="POST">
                     <td scope="row"><?php echo $array['idcliente'] ?></td>
@@ -52,4 +52,6 @@
            <?php }?>
         </tbody>
     </table>
+</div>
+
 </div>

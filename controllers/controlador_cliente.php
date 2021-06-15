@@ -28,7 +28,7 @@ else if (isset($_POST['Editar'])) {
     
     $obj_cl = new Cliente;
     $cliente = $obj_cl->obtener_un_cliente($id);
-    echo $cliente['dni'];
+    
     require_once("./view/editar_cliente.html");
     
 }else if(isset($_POST['Eliminar'])){

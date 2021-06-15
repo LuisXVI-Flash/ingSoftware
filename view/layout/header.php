@@ -72,7 +72,7 @@
         </ul>
       </div>
     </nav>
-    <div class="row container__dispositivo">
+    <div class="container__dispositivo">
       <!-- <div class="col-lg-3">
         <div class="container-fluid">
           <nav class="nav flex-column"> -->

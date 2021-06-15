@@ -34,7 +34,7 @@ if(isset($_POST["Guardar"])){
         
         $obj_dis = new Dispositivo;
         $dispositivo = $obj_dis->obtener_un_dispositivo($id);
-        var_dump($id);
+        
         include_once("./view/actualizar_dispositivo.html");
 
     }
