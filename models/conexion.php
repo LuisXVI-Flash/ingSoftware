@@ -27,8 +27,8 @@ class Conexion
     public function get(){
         return $this->conexion;
     }
-    public function close(){
-        mysqli_close($this->conexion);
+    public static function close(){
+        mysqli_close(self::$instancia);
     }
 
     public function query($sql){

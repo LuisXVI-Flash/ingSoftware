@@ -1,5 +1,5 @@
 <?php
-include_once ("conexion.php");
+
 class Dispositivo extends Conexion{
 	private $id;
 	private $pac;
@@ -38,73 +38,48 @@ class Dispositivo extends Conexion{
             $conexion -> close();
         
 	}
-	public function eliminar($id){
-		$consulta = "DELETE FROM producto WHERE '{$id}'";
-		$conexion = $this -> obtenerConexion();
-		$resultado = $conexion -> query($consulta);
-		$conexion -> close();
-	
-	}
-	public function actualizar($id,$pack,$estado){
-
-			
-		$consulta = "INSERT INTO producto VALUES ('','$id', '$pack', '$estado')";
-		$conexion = $this -> obtenerConexion();
-		$resultado = $conexion -> query($consulta);
-		$conexion -> close();
-	
-	}	
 	public function getProductos(){
 
-		$vector = array();
-		$conexion = new Conexion();
-		$db = $conexion->getConexion();
-		$sql = "SELECT * FROM producto";
-		$consulta = $db->prepare($sql);
-		$consulta->execute();
-		while($fila = $consulta->fetch()) {
-			$vector[] = array(
-			  "id" => $fila['id'],
-			  "nombre" => $fila['pac'],
-			  "precio" => $fila['estado'] );
-			  }//fin del ciclo while 
-	 
-		 if(empty($vector[0])){
-		 $error = array();
-		 $error[] = array("error" => "producto no encontrado");
-		 return $error[0];
-		 }
-		 else{
-			 return $vector;
-		 }
+		$instancia = Conexion::obtenerConexion();
+        $resultadoa = mysqli_query($instancia, "SELECT *  FROM producto");
+
+        while ($consultaa = mysqli_fetch_array($resultadoa)) {
+            $r[] = $consultaa;
+        }
+        return $r;
 	}
 	 
 	 public function findProduct($nombre){
-	 
-		 $vector = array();
-		 $conexion = new Conexion();
-		 $db = $conexion->getConexion();
-		 $sql = "SELECT * FROM producto where pac like '%".$nombre."%'";
-		 // $sql = "SELECT * FROM producto where nombre like :nombre";
-		 $consulta = $db->prepare($sql);
-		 $consulta->bindParam(':nombre', $nombre);  
-		 $consulta->execute();
-		 while($fila = $consulta->fetch()) {
-			 $vector[] = array(
-			   "id" => $fila['id'],
-			   "nombre" => $fila['pac'],
-			   "precio" => $fila['estado'] );
-			   }//fin del ciclo while 
-	  
-		 if(empty($vector[0])){
-			 $error = array();
-			 $error[] = array("error" => "producto no encontrado");
-			 return $error[0];
-		 }
-		 else{
-			 return $vector;
-		 }
+		$instancia = Conexion::obtenerConexion();
+		$nom = $instancia->real_escape_string($nombre);
+		$sql = "SELECT * FROM producto where pac like '%".$nom."%'";
+		$r = [];
+		$resultadoa = mysqli_query($instancia, $sql);
+		while ($consultaa = mysqli_fetch_array($resultadoa)) {
+			$r[] = $consultaa;
+		}
+		$instancia = Conexion::close();
+		return $r;
 	  }
+
+	public function obtener_un_dispositivo($id){
+		$instancia = Conexion::obtenerConexion();
+		$sql="SELECT * FROM  producto WHERE id=$id";
+		$resultadoa = mysqli_query($instancia, $sql);
+		$consultaxd = mysqli_fetch_array($resultadoa);
+		//var_dump('<pre>',$consultaxd,'</pre');
+		return $consultaxd;
+	}
+
+	public function editardispositivo($idproducto,$id,$pac,$estado){
+		$instancia = Conexion::obtenerConexion();
+        $resultadodd = mysqli_query($instancia, "UPDATE producto SET id='$id',
+    	pac='$pac',estado='$estado' WHERE idproducto=$idproducto");
+	}
+	public function eliminardispositivo($a){
+		$instancia = Conexion::obtenerConexion();
+		$resultadodd = mysqli_query($instancia, " DELETE FROM producto WHERE idproducto = $a");
+	}
 
 
 }

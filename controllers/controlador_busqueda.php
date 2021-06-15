@@ -1,8 +1,7 @@
 <?php
 // require_once('conexion.php');
-include_once("../models/Dispositivo.php");
-include_once("../models/conexion.php");
-include_once("../models/Sesion.php");
+require_once("..\models\Conexion.php");
+require_once("..\models\Dispositivo.php");
 $method = $_SERVER['REQUEST_METHOD'];
 
 if($method=="POST"){
