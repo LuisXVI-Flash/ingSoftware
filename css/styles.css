@@ -437,6 +437,10 @@ align-items: center;
 color: #fff;
 }
 /* formulario */
+.content__table__atendidos{
+  margin: 20px;
+  padding: 0 40px;
+}
 
 .container_formulario{
   width: 400px;
@@ -446,4 +450,30 @@ color: #fff;
 }
 .input__form{
   width: 100%;
+}
+
+/* container__atendidos */
+
+.container__atendidos{
+  display: flex;
+  justify-content: space-around;
+}
+
+.container__atendidos__cards{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.card__atendido{
+  width: 200px;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #006cbe;
+  border-radius: 5px;
+  margin-left: 10px;
 }

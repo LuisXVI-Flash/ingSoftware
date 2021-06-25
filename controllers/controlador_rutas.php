@@ -17,6 +17,8 @@ if(isset($_SESSION["idcargo"])){
     }elseif($_GET["vista"]=="dispositivo"){
 
         require_once("./controllers/controlador_dispositivo.php");
+    }elseif($_GET["vista"]=="atendidos"){
+        require_once("./view/Listar_atendidos.html");
     }else{
         require_once("./view/vista_principal.html");
     }
