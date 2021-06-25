@@ -32,7 +32,7 @@ CREATE TABLE `cargo_trabajador` (
   `idcargo_trabajador` int(11) NOT NULL,
   `tipo_trabajador` varchar(30) NOT NULL,
   `ruta_acceso` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `cargo_trabajador`
@@ -56,7 +56,7 @@ CREATE TABLE `clientes` (
   `correo` varchar(30) NOT NULL,
   `dni` int(8) NOT NULL,
   `celular` int(9) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `clientes`
@@ -79,7 +79,7 @@ CREATE TABLE `producto` (
   `id` int(15) NOT NULL,
   `pac` varchar(15) NOT NULL,
   `estado` int(2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `producto`
@@ -103,7 +103,7 @@ CREATE TABLE `solicitud` (
   `fecha` date NOT NULL,
   `idproducto` int(11) NOT NULL,
   `idcliente` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `solicitud`
@@ -127,7 +127,7 @@ CREATE TABLE `trabajadores` (
   `usuario` varchar(200) NOT NULL,
   `idcargo_trabajador` int(11) NOT NULL,
   `estado` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `trabajadores`

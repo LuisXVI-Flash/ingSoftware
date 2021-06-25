@@ -1,0 +1,69 @@
+
+<style type="text/css">
+    .col-lg-3 {
+        display: none !important;
+    }
+    </style>
+    
+    <div class="container__agregar">
+       
+        <div class="card text-dark bg-light mb-3" style="width: 40rem;">
+            <div class="card-header fw-bold text-center">REGISTRAR SOLICITUD DE ACTIVACIÓN DE DISPOSITIVO</div>
+    
+                <div class="container ">
+                    <div class="container__form">
+                    <form method="post" action="?solicitar&enviar" id="form_solicitar_act">
+                        <table>
+                            <thead>
+                                <tr>    
+                                    <td colspan="2">FORMULARIO </td>
+                                </tr>
+                            </thead>
+                            <tr>
+                                <td><label>ID</label></td>
+                                <td><input type="number" name="id" id="id"></td>
+                            </tr>
+                            <tr>
+                                <td><label>PAC</label></td>
+                                <td><input type="text" name="pac" id="pac"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"> <input type="submit" class="btn btn-primary mx-2" value="Siguiente" name="btnSolicitar"></td>
+                                <td colspan="2"> <input type="submit" class="btn btn-secondary" value="Regresar" name="Regresar"></td>
+                            </tr>
+                        </table>
+                        <span id="error"></span>
+                    </form>
+                </div>
+        </div>
+    </div>
+    <!-- </div> -->
+    <script type="text/javascript">
+    function goBack() {
+        window.history.back();
+    }
+    /*$(document).ready(function() {
+        $('.toast').toast('show');
+    });*/
+
+    const form = document.querySelector('#form_solicitar_act');
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const id = document.querySelector('#id')
+        const pac = document.querySelector('#pac');
+
+        fetch(`?solicitar=&validarDispositivo&id=${id.value}&pac=${pac.value}`)
+            .then(data => data.text())
+            .then(text => {
+                if(text==0) {
+                    const error = document.querySelector('#error');
+                    error.innerHTML = "El dispositivo que desea activar no existe";
+                } else {
+                    error.innerHTML = "";
+                    form.submit();
+                }
+            });
+    });
+    </script>
+    <script src="./js/main.js"></script>
+    

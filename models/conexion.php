@@ -21,7 +21,7 @@ class Conexion
 	}
 	private $conexion;
 	public function __construct(){
-        $this->conexion = mysqli_connect("localhost","root","12345678","teca");
+        $this->conexion = mysqli_connect("127.0.0.1","root","12345678","teca");
     }
 
     public function get(){

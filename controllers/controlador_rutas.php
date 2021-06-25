@@ -11,11 +11,8 @@ if(isset($_SESSION["idcargo"])){
     
     if(isset($_GET["vista"])){
         if($_GET["vista"]=="cliente"){
-
         require_once("./controllers/controlador_cliente.php");
-
     }elseif($_GET["vista"]=="dispositivo"){
-
         require_once("./controllers/controlador_dispositivo.php");
     }elseif($_GET["vista"]=="atendidos"){
         require_once("./view/Listar_atendidos.html");
@@ -23,12 +20,12 @@ if(isset($_SESSION["idcargo"])){
         require_once("./view/vista_principal.html");
     }
     }else{
-
         require_once("./view/vista_principal.html");
-
     }
     require_once("./view/layout/footer.php");
-}else{
+} elseif(isset($_GET["solicitar"])) {
+    require_once("./controllers/controlador_activacion.php");
+} else{
     require_once("./controllers/controller_Trabajador.php");
 }
 

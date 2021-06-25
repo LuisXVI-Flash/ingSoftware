@@ -84,6 +84,12 @@ class Dispositivo extends Conexion{
 		$resultadodd = mysqli_query($instancia, " DELETE FROM producto WHERE idproducto = $a");
 	}
 
-
+	public function validarPac($id,$pac) {
+		$instancia = Conexion::obtenerConexion();
+		$sql = "SELECT * FROM producto where id=".$id." and pac='". $pac . "'";
+		$resultados = mysqli_query($instancia, $sql);
+		$instancia = Conexion::close();
+		return mysqli_num_rows($resultados);
+	}
 }
 ?>
