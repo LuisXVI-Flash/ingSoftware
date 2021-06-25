@@ -22,7 +22,8 @@ window.addEventListener("load", () => {
         alerta.innerHTML=``;
       } else {
         // const datos=JSON.stringify(data);
-        filtrarAtendidos(data)
+        getUltimosAtendidos(data);
+        filtrarAtendidos(data);
       //   console.log(filtrarAtendidos(data))
       //   for (let i = 0; i < data.length; i++) {
       //     console.log(data[i].pac)
@@ -76,6 +77,47 @@ window.addEventListener("load", () => {
         return data
       }
     })
+  }
+
+  //filtrar ultimos atendidos
+  const containerCard=document.querySelector('.container__atendidos__cards');
+  const template2=document.getElementById('card').content;
+  const fragment2=document.createDocumentFragment();
+  const getUltimosAtendidos=(data)=>{
+    // const cards=document.querySelectorAll('.card__atendido');
+    const atendidos=data.filter(dat=>dat.estado=="1");
+    // const ultimaFecha=atendidos.filter(dat=>mayorfecha(dat.fecha));
+    const ordenFechas=atendidos.sort((a,b)=>{
+      if(a.fecha>b.fecha){
+        return 1;
+      }if(a.fecha<b.fecha){
+        return -1;
+      }
+      return 0;
+    });
+    const ultimosTres=ordenFechas.slice(ordenFechas.length-3);
+    // console.log(ultimosTres)
+    // console.log(template2)
+    ultimosTres.forEach(el => {
+      console.log(el)
+      template2.querySelector('.card__atendido h3').textContent=el.nombres;
+      template2.querySelector('.card__atendido h4').textContent=el.fecha;
+      const clone=template2.cloneNode(true);
+      fragment2.appendChild(clone);
+    });
+    containerCard.appendChild(fragment2)
+  //   for (let i = 0; i < ultimosTres.length; i++) {
+  //   console.log(ultimosTres[i].fecha)
+  //     template.querySelector('h3').textContent=ultimosTres[i].nombres;
+  //     template.querySelector('h4').textContent=ultimosTres[i].fecha;
+  // }
+  // cards.forEach(element => {
+  //   // console.log(element)
+  //     element.querySelector('h3').innerHTML=ultimosTres[i].nombres;
+  //     element.querySelector('h4').innerHTML=ultimosTres[i].fecha;
+   
+  // });
+
   }
 
   //paginador
