@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 30-05-2021 a las 22:29:33
+-- Tiempo de generación: 25-06-2021 a las 18:58:16
 -- Versión del servidor: 8.0.17
 -- Versión de PHP: 7.3.10
 
@@ -32,7 +32,7 @@ CREATE TABLE `cargo_trabajador` (
   `idcargo_trabajador` int(11) NOT NULL,
   `tipo_trabajador` varchar(30) NOT NULL,
   `ruta_acceso` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Volcado de datos para la tabla `cargo_trabajador`
@@ -56,7 +56,7 @@ CREATE TABLE `clientes` (
   `correo` varchar(30) NOT NULL,
   `dni` int(8) NOT NULL,
   `celular` int(9) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Volcado de datos para la tabla `clientes`
@@ -65,8 +65,10 @@ CREATE TABLE `clientes` (
 INSERT INTO `clientes` (`idcliente`, `nombres`, `apellidos`, `correo`, `dni`, `celular`) VALUES
 (1, 'Isabella', 'Caballero Moreno', 'isabelitacancer@gmail.com', 78965412, 987456321),
 (2, 'Aera', 'asrarasr', 'askdaksd@gmual.com', 13123123, 987654321),
+(5, 'victor', 'quispe quispe', 'victor@gamil.com', 89021353, 934596875),
+(6, 'manuel', 'gonzales', 'manu@gamiml.com', 98238423, 934596834),
 (22, 'Janeth', 'Huamantinco Asis', 'janethjrha@gmail.com', 78945612, 987654321),
-(23, 'Janeth', 'Huamantinco Asis', 'janethjrha@gmail.com', 78945612, 987654321);
+(23, 'Daniel', 'Durand rosas', 'daniel@gmail.com', 78945613, 987654322);
 
 -- --------------------------------------------------------
 
@@ -79,7 +81,7 @@ CREATE TABLE `producto` (
   `id` int(15) NOT NULL,
   `pac` varchar(15) NOT NULL,
   `estado` int(2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Volcado de datos para la tabla `producto`
@@ -90,7 +92,11 @@ INSERT INTO `producto` (`idproducto`, `id`, `pac`, `estado`) VALUES
 (3, 52114, 'wjjdhfj657541', 0),
 (4, 4466521, '9898745656', 0),
 (5, 456879, '8789525321', 0),
-(6, 8521456, '6422', 0);
+(6, 8521456, '6422', 0),
+(7, 54654, 'ughkj', 1),
+(8, 98798, 'jhlkj', 1),
+(9, 89465, 'fgugiuh', 1),
+(10, 4865, 'uhbuoi', 1);
 
 -- --------------------------------------------------------
 
@@ -103,14 +109,22 @@ CREATE TABLE `solicitud` (
   `fecha` date NOT NULL,
   `idproducto` int(11) NOT NULL,
   `idcliente` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Volcado de datos para la tabla `solicitud`
 --
 
 INSERT INTO `solicitud` (`idsolicitud`, `fecha`, `idproducto`, `idcliente`) VALUES
-(5, '2021-05-03', 1, 1);
+(1, '2021-05-03', 1, 1),
+(6, '2021-06-26', 4, 2),
+(7, '2021-06-22', 3, 1),
+(11, '2021-06-08', 6, 22),
+(12, '2021-06-29', 5, 22),
+(13, '2021-06-29', 7, 6),
+(14, '2021-06-16', 8, 22),
+(16, '2021-06-22', 9, 6),
+(17, '2021-06-20', 10, 1);
 
 -- --------------------------------------------------------
 
@@ -127,7 +141,7 @@ CREATE TABLE `trabajadores` (
   `usuario` varchar(200) NOT NULL,
   `idcargo_trabajador` int(11) NOT NULL,
   `estado` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Volcado de datos para la tabla `trabajadores`
@@ -165,7 +179,7 @@ ALTER TABLE `producto`
 ALTER TABLE `solicitud`
   ADD PRIMARY KEY (`idsolicitud`),
   ADD UNIQUE KEY `idproducto` (`idproducto`),
-  ADD UNIQUE KEY `idcliente` (`idcliente`);
+  ADD KEY `idcliente` (`idcliente`) USING BTREE;
 
 --
 -- Indices de la tabla `trabajadores`
@@ -194,13 +208,13 @@ ALTER TABLE `clientes`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `idproducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `idproducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `solicitud`
 --
 ALTER TABLE `solicitud`
-  MODIFY `idsolicitud` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idsolicitud` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `trabajadores`
