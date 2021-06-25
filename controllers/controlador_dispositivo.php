@@ -59,7 +59,7 @@ if(isset($_POST["Guardar"])){
 
 elseif(isset($_POST["btnAgregarDispositivo"])){
     require_once("./view/dispositivo_agregar.html");
-}else{
+} else {
     require_once("./view/listar_dispositivo.html");
 }
 
