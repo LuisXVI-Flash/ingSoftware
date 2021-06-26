@@ -40,15 +40,37 @@ window.addEventListener("load", () => {
       //  mensaje.innerHTML = ``;
       
       $(document).ready( function () {
+        // creamos el boton
+        $('#listingTable').on('click', 'td.editor-delete', function (e) {
+          e.preventDefault();
+   
+          editor.remove( $(this).closest('tr'), {
+              title: 'Delete record',
+              message: 'Are you sure you wish to remove this record?',
+              buttons: 'Delete'
+          } );
+      } );
+    // creamos la tabla
           $('#listingTable').DataTable({
+            columns:[
+              {data:"idsolicitud"},
+              {data:"pac"},
+              {data:"fecha"},
+              {data:"nombres"},
+              {
+                data: null,
+                className: "dt-center editor-delete",
+                defaultContent: `<button class="btn btn-primary">atendido</button>`,
+                orderable: false
+              },
+            ],
             data:data,
-            // "columns":[
-            // {"data":data},
-            // {"defaultContent":`<a class="btn btn-danger my-2 btn__action" href="index.php?vista=dispositivo&id=${data[i].idproducto}&operacion=editar"></a>`}
-            // ],
-          //   "language": {
-          //     "url": "//cdn.datatables.net/plug-ins/1.10.11/i18n/Spanish.json"
-          // },
+            "language": {
+              "url": "https://cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json"
+            },
+            // success: function(data) {
+            //   cargarTabla(data);
+            //      },
           "lengthMenu":[[5, 10, 20, 25, 50, -1], [5, 10, 20, 25, 50, "Todos"]],
           });
         } );
