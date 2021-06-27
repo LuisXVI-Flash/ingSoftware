@@ -12,6 +12,7 @@ if(isset($_SESSION["idcargo"])){
     if(isset($_GET["vista"])){
         if($_GET["vista"]=="cliente"){
         require_once("./controllers/controlador_cliente.php");
+        
     }elseif($_GET["vista"]=="dispositivo"){
         require_once("./controllers/controlador_dispositivo.php");
     }elseif($_GET["vista"]=="atendidos"){

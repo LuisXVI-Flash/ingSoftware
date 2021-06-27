@@ -2,7 +2,9 @@
 require_once("./models/Cliente.php");
 require_once("./models/Conexion.php");
 require_once("./view/vista_principal.html");
+
 //botones
+
 if(isset($_POST["btngestionarr"]) or isset($_POST["verificar_usuario"] ) or isset($_POST["guardar_usuario"]) or isset($_POST["contrasenia_usuario"]) ){
     require_once("./view/FormularioCliente.html");
 
@@ -61,7 +63,7 @@ else if (isset($_POST['Editar'])) {
     } else{
     $array=listar_cliente();
 
-require_once("./view/Formulario_listar_cliente.html");
+    require_once("./view/Formulario_listar_cliente.html");
 }
 
 
@@ -89,11 +91,9 @@ require_once("./view/Formulario_listar_cliente.html");
 //     $obj_act->editarcliente($a,$nombres,$apellidos,$correo,$dni,$celular);
 //     ?>
 
-     <script type="text/javascript">
-//         alert("Cliente modificado exitosamente");
-//     </script>
 
-// <?php
+
+ <?php
 //     include_once("./view/Formulario_listar_cliente.html");
 //     $cliente = new Cliente;
 //     $array= $cliente->listar_cliente();

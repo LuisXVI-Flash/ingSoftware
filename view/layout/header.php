@@ -36,6 +36,7 @@
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
     crossorigin="anonymous"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+    <script src="./js/busqueda_cliente.js"></script>
   </head>
   <body>
     <?php
