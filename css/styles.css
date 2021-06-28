@@ -456,7 +456,11 @@ color: #fff;
 
 .container__atendidos{
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-end;
+}
+
+.container__atendidos select{
+  margin-right:60px;
 }
 
 .container__atendidos__cards{
@@ -476,4 +480,20 @@ color: #fff;
   border: 2px solid #006cbe;
   border-radius: 5px;
   margin-left: 10px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.card__atendido:hover{
+  background: #7cc8ffd0;
+  color: #fff;
+  cursor: pointer;
+}
+
+.container__title{
+  display: flex;
+  justify-content: flex-start;
+}
+
+.container__title h4{
+  margin-left: 50px;
 }

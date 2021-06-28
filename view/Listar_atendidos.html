@@ -1,7 +1,10 @@
 <div class="container__grid">
   <br />
-  <h4 style="text-align: center" class="card-title">Lista de Atendidos</h4>
+  <h4 style="text-align: center" class="card-title">Lista de Solicitud</h4>
   <br /><br />
+  <div class="container__title">
+    <h4>Ultimos Atendidos:</h4>
+  </div>
   <div class="container__atendidos__cards">
     <template id="card">
       <div class="card__atendido">
@@ -11,61 +14,34 @@
     </template>
   </div>
   <div class="container__atendidos">
-    <div class="content__table">
-      <form
-        method="GET"
-        id="formbuscar"
-        autocapitalize="false"
-        autocomplete="off"
-        class="row g-3"
-      >
-        <div class="col-auto">
-          <input type="text" name="buscar" id="buscar" class="form-control" />
-        </div>
-        <div class="col-auto">
-          <input
-            class="btn btn-primary"
-            type="submit"
-            value="buscar"
-            placeholder="busqueda.."
-            id="btnbuscar"
-          />
-        </div>
-      </form>
-    </div>
-    <br />
-    <div class="alert" id="mensaje"></div>
-    <div class="content__table">
-      <br /><br />
-      <form action="#" method="post">
-        <input
-          type="submit"
-          name="btnAgregarDispositivo"
-          value="Agregar"
-          class="btn btn-primary mx-2"
-          style="float: right"
-        />
-      </form>
-      <select name="estado" id="selectAtendido">
-        <option value="filtrar">Filtrar</option>
-        <option value="atendido">Atendido</option>
-        <option value="no atendido">No Atendido</option>
-      </select>
-    </div>
   </div>
   <div class="content__table__atendidos">
     <table class="table table-hover my-4" id="listingTable" style="width: 90%">
       <thead>
         <tr>
           <td>Id</td>
+          <td>Pac</td>
           <td>Fecha</td>
           <td>Cliente</td>
-          <td>Dispositivo</td>
           <td>Acciones</td>
         </tr>
       </thead>
 
       <tbody id="tbody" class="list"></tbody>
+      <tfoot>
+        <tr>
+          <th>id</th>
+          <th>
+            dispositivo
+          </th>
+          <th>
+            fecha
+          </th>
+          <th>
+            cliente
+          </th>
+        </tr>
+      </tfoot>
     </table>
 
     <template id="template-table-atendido">
@@ -85,11 +61,6 @@
   <div id="datos"></div>
   <nav aria-label="Page navigation example">
     <ul class="pagination justify-content-center pagenumbers" id="pagination">
-      <!-- <li class="page-item"><a class="page-link pageButton outline-none" id="button_prev" href="#">Previous</a></li>
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item pageButton outline-none"><a class="page-link" id="button_next" href="#">Next</a></li> -->
     </ul>
   </nav>
 </div>

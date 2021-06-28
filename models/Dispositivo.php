@@ -61,6 +61,11 @@ class Dispositivo extends Conexion{
 		$instancia = Conexion::close();
 		return $r;
 	  }
+	  
+	  public function cambiarEstado($id,$estado){
+		$instancia = Conexion::obtenerConexion();
+		$sql = mysqli_query($instancia,"UPDATE producto SET estado=$estado WHERE idproducto=$id");
+	  }
 
 	public function obtener_un_dispositivo($id){
 		$instancia = Conexion::obtenerConexion();
