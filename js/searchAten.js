@@ -12,7 +12,7 @@ window.addEventListener("load", () => {
     fetch("./controllers/controlador_atendido.php")
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
+      // console.log(data);
       // console.log(JSON.parse(data))
       if (data.error) {
         mensaje.innerHTML = `
@@ -121,7 +121,7 @@ window.addEventListener("load", () => {
     // console.log(ultimosTres)
     // console.log(template2)
     ultimosTres.forEach(el => {
-      console.log(el)
+      // console.log(el)
       template2.querySelector('.card__atendido h3').textContent=el.nombres;
       template2.querySelector('.card__atendido h4').textContent=el.fecha;
       const clone=template2.cloneNode(true);
@@ -135,7 +135,7 @@ window.addEventListener("load", () => {
     fetch("./controllers/controlador_atendido.php")
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
+      // console.log(data);
       // console.log(JSON.parse(data))
       if (data.error) {
         mensaje.innerHTML = `
@@ -185,10 +185,10 @@ window.addEventListener("load", () => {
                   let estado=data.estado;
                   if(estado==1){
                     estado=0;
-                    return `<a class="btn btn-primary" href="index.php?vista=atendidos&id=${data.idproducto}&esta=${estado}&operacion=estado">atendido</a>`
+                    return `<a class="btn btn-primary" href="index.php?vista=pedidos&id=${data.idproducto}&esta=${estado}&operacion=estado">atendido</a>`
                   }else if(estado==0){
                     estado=1;
-                    return `<a class="btn btn-primary" href="index.php?vista=atendidos&id=${data.idproducto}&esta=${estado}&operacion=estado">No atendido</a>`;
+                    return `<a class="btn btn-primary" href="index.php?vista=pedidos&id=${data.idproducto}&esta=${estado}&operacion=estado">No atendido</a>`;
                   }
                 },
                 // orderable: false
@@ -212,7 +212,7 @@ window.addEventListener("load", () => {
     fetch("./controllers/controlador_atendido.php")
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
+      // console.log(data);
       // console.log(JSON.parse(data))
       if (data.error) {
         mensaje.innerHTML = `
@@ -262,10 +262,10 @@ window.addEventListener("load", () => {
                   let estado=data.estado;
                   if(estado==1){
                     estado=0;
-                    return `<a class="btn btn-primary" href="index.php?vista=atendidos&id=${data.idproducto}&esta=${estado}&operacion=estado">atendido</a>`
+                    return `<a class="btn btn-primary" href="index.php?vista=atendidos2&id=${data.idproducto}&esta=${estado}&operacion=estado">atendido</a>`
                   }else if(estado==0){
                     estado=1;
-                    return `<a class="btn btn-primary" href="index.php?vista=atendidos&id=${data.idproducto}&esta=${estado}&operacion=estado">No atendido</a>`;
+                    return `<a class="btn btn-primary" href="index.php?vista=atendidos2&id=${data.idproducto}&esta=${estado}&operacion=estado">No atendido</a>`;
                   }
                 },
                 // orderable: false

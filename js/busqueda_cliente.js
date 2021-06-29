@@ -4,7 +4,7 @@ const mostrarCliente=()=>{
     fetch("./controllers/controlador_busquedaclien.php")
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
+      // console.log(data);
       // console.log(JSON.parse(data))
       if (data.error) {
 
@@ -16,7 +16,7 @@ const mostrarCliente=()=>{
        // alerta.innerHTML=``;
       } else {
 
-        console.log(data)
+        // console.log(data)
        
         $(document).ready( function () {
             // creamos el boton

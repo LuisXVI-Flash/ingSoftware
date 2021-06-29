@@ -1,4 +1,8 @@
+@import url("sidebar.css");
 * {
+  /* Custom Propertys */
+  --backgroumd:rgb(100, 146, 255);
+  /* options defautl */
   box-sizing: border-box;
   padding: 0;
   margin: 0;
