@@ -1,5 +1,5 @@
 <?php
-require_once("../models/Conexion.php");
+
 class Atendidos extends Conexion{
 
     public function getAtendidos(){
