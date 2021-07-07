@@ -1,6 +1,6 @@
 <?php
 
-require_once("../models/Conexion.php");
+require_once("../models/conexion.php");
 require_once("../models/Cliente.php");
 //require_once("../view/vista_principal.html");
 $method = $_SERVER['REQUEST_METHOD']; 

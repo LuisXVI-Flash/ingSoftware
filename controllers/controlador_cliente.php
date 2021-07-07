@@ -1,6 +1,6 @@
 <?php 
 require_once("./models/Cliente.php");
-require_once("./models/Conexion.php");
+require_once("./models/conexion.php");
 require_once("./view/vista_principal.html");
 
 //botones
@@ -58,7 +58,10 @@ else if (isset($_POST['Editar'])) {
          </script>
     
      <?php
-        header("Location: index.php?vista=cliente");
+        // header("Location: index.php?vista=cliente");
+        $array=listar_cliente();
+
+    require_once("./view/Formulario_listar_cliente.html");
         
     } else{
     $array=listar_cliente();

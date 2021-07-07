@@ -1,5 +1,5 @@
 <?php
-require_once("./models/Conexion.php");
+require_once("./models/conexion.php");
 require_once("./models/Dispositivo.php");
 
 $dispositivo = new Dispositivo;

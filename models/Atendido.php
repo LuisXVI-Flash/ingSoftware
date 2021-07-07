@@ -1,10 +1,10 @@
 <?php
 
-class Atendidos extends Conexion{
+class Atendidos extends conexion{
 
     public function getAtendidos(){
 
-		$instancia = Conexion::obtenerConexion();
+		$instancia = conexion::obtenerconexion();
         $resultadoa = mysqli_query($instancia, "SELECT s.idsolicitud,s.fecha, c.nombres, p.pac,p.estado,s.idproducto FROM solicitud s,producto p,clientes c WHERE c.idcliente=s.idcliente and p.idproducto=s.idproducto");
 
         while ($consultaa = mysqli_fetch_array($resultadoa)) {
@@ -16,7 +16,7 @@ class Atendidos extends Conexion{
 		//   buscar atendidos
 	 
 	 public function findAtendidos($nombre){
-		$instancia = Conexion::obtenerConexion();
+		$instancia = conexion::obtenerconexion();
 		$nom = $instancia->real_escape_string($nombre);
 
 		//listar la busqueda
@@ -28,7 +28,7 @@ class Atendidos extends Conexion{
 			$r[] = $consultaa;
 		}
 
-		$instancia = Conexion::close();
+		$instancia = conexion::close();
 		return $r;
 	  }
 

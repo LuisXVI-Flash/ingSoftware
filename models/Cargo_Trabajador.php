@@ -5,7 +5,7 @@
             $this -> conectar();
         }
         public function obtenerPrivilegios($login){
-            $conexion = Conexion::obtenerConexion();
+            $conexion = conexion::obtenerconexion();
             $consulta = "SELECT C.idcargo_Trabajador, C.Tipo_Trabajador,T.nombres FROM cargo_trabajador C, trabajadores T 
                          WHERE C.idcargo_Trabajador = T.idcargo_Trabajador and T.usuario = '$login'";
 

@@ -1,6 +1,6 @@
 <?php
 
-class Dispositivo extends Conexion{
+class Dispositivo extends conexion{
 	private $id;
 	private $pac;
 	private $estado; 
@@ -33,14 +33,14 @@ class Dispositivo extends Conexion{
 
 			
 			$consulta = "INSERT INTO producto VALUES ('','$id', '$pack', '$estado')";
-			$conexion = $this -> obtenerConexion();
+			$conexion = $this -> obtenerconexion();
             $resultado = $conexion -> query($consulta);
             $conexion -> close();
         
 	}
 	public function getProductos(){
 
-		$instancia = Conexion::obtenerConexion();
+		$instancia = conexion::obtenerconexion();
         $resultadoa = mysqli_query($instancia, "SELECT *  FROM producto");
 
         while ($consultaa = mysqli_fetch_array($resultadoa)) {
@@ -50,7 +50,7 @@ class Dispositivo extends Conexion{
 	}
 	 
 	 public function findProduct($nombre){
-		$instancia = Conexion::obtenerConexion();
+		$instancia = conexion::obtenerconexion();
 		$nom = $instancia->real_escape_string($nombre);
 		$sql = "SELECT * FROM producto where pac like '%".$nom."%'";
 		$r = [];
@@ -58,17 +58,17 @@ class Dispositivo extends Conexion{
 		while ($consultaa = mysqli_fetch_array($resultadoa)) {
 			$r[] = $consultaa;
 		}
-		$instancia = Conexion::close();
+		$instancia = conexion::close();
 		return $r;
 	  }
 	  
 	  public function cambiarEstado($id,$estado){
-		$instancia = Conexion::obtenerConexion();
+		$instancia = conexion::obtenerconexion();
 		$sql = mysqli_query($instancia,"UPDATE producto SET estado=$estado WHERE idproducto=$id");
 	  }
 
 	public function obtener_un_dispositivo($id){
-		$instancia = Conexion::obtenerConexion();
+		$instancia = conexion::obtenerconexion();
 		//si tienes error cambiar idproducto por id
 		$sql="SELECT * FROM  producto WHERE idproducto=$id";
 		$resultadoa = mysqli_query($instancia, $sql);
@@ -80,20 +80,20 @@ class Dispositivo extends Conexion{
 	}
 
 	public function editardispositivo($idproducto,$id,$pac,$estado){
-		$instancia = Conexion::obtenerConexion();
+		$instancia = conexion::obtenerconexion();
         $resultadodd = mysqli_query($instancia, "UPDATE producto SET id='$id',
     	pac='$pac',estado='$estado' WHERE idproducto=$idproducto");
 	}
 	public function eliminardispositivo($a){
-		$instancia = Conexion::obtenerConexion();
+		$instancia = conexion::obtenerconexion();
 		$resultadodd = mysqli_query($instancia, " DELETE FROM producto WHERE idproducto = $a");
 	}
 
 	public function validarPac($id,$pac) {
-		$instancia = Conexion::obtenerConexion();
+		$instancia = conexion::obtenerconexion();
 		$sql = "SELECT * FROM producto where id=".$id." and pac='". $pac . "'";
 		$resultados = mysqli_query($instancia, $sql);
-		$instancia = Conexion::close();
+		$instancia = conexion::close();
 		return mysqli_num_rows($resultados);
 	}
 }

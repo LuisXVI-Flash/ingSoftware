@@ -54,7 +54,9 @@ if(isset($_POST["Guardar"])){
     
     $obj_act = new Dispositivo;
     $obj_act->editardispositivo($idproducto,$id,$pac,$estado);
-    header("Location: index.php?vista=dispositivo");}
+    // header("Location: index.php?vista=dispositivo");
+    require_once("./view/listar_dispositivo.html");
+}
    
 
 elseif(isset($_POST["btnAgregarDispositivo"])){

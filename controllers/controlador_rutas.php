@@ -1,6 +1,6 @@
 <?php
 require_once("./models/Sesion.php");
-require_once("./models/Conexion.php");
+require_once("./models/conexion.php");
 if(isset($_GET["cerrar"])){
     session_destroy();
     header("Location: index.php");

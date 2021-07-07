@@ -3,7 +3,7 @@
     class Trabajador extends conexion {
         
         public function validarTrabajador($login,$password){
-            $conexion = Conexion::obtenerConexion();
+            $conexion = conexion::obtenerconexion();
             $consulta = "SELECT usuario FROM trabajadores where usuario = '$login' AND contraseña= '$password' AND estado = 1";
             
             $resultado = mysqli_query($conexion,$consulta);

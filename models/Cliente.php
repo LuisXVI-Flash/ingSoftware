@@ -1,10 +1,10 @@
 <?php 
     
 
-    Class Cliente extends Conexion {
+    Class Cliente extends conexion {
         public function registrar_cliente($nombres, $apellidos, $correo, $dni, $celular) {
             $consulta = "INSERT INTO clientes (nombres, apellidos, correo, dni, celular) VALUES ('$nombres', '$apellidos', '$correo', '$dni', '$celular')";
-            $conexion = $this -> obtenerConexion();
+            $conexion = $this -> obtenerconexion();
             $resultado = $conexion -> query($consulta);
             $conexion -> close();
             //return $resultado -> fetch_all();
@@ -12,7 +12,7 @@
 
         public function getcliente(){
 
-            $instancia = Conexion::obtenerConexion();
+            $instancia = conexion::obtenerconexion();
             $resultadoa = mysqli_query($instancia, "SELECT *  FROM clientes");
     
             while ($consultaa = mysqli_fetch_array($resultadoa)) {
@@ -23,7 +23,7 @@
 
         public function consultar_cliente($idd){
 
-            $instancia = Conexion::obtenerConexion();
+            $instancia = conexion::obtenerconexion();
             $resultadoa = mysqli_query($instancia, "SELECT * FROM  clientes WHERE idcliente=$idd");
             $Array=[
                 $resultadoa['idcliente'],
@@ -37,24 +37,24 @@
             ];
         }
         public function obtener_un_cliente($id){
-            $instancia = Conexion::obtenerConexion();
+            $instancia = conexion::obtenerconexion();
             $resultadoa = mysqli_query($instancia, "SELECT * FROM  clientes WHERE idcliente=$id");
             $consultaxd = mysqli_fetch_array($resultadoa);
             return $consultaxd;
         }
         public function editarcliente($a, $nombres, $apellidos, $correo, $dni, $celular){
-            $instancia = Conexion::obtenerConexion();
+            $instancia = conexion::obtenerconexion();
             $resultadodd = mysqli_query($instancia, "UPDATE clientes SET nombres='$nombres',
             apellidos='$apellidos',correo='$correo',dni='$dni',celular='$celular' WHERE idcliente=$a");
         }
         public function eliminarcliente($a){
-            $instancia = Conexion::obtenerConexion();
+            $instancia = conexion::obtenerconexion();
             $resultadodd = mysqli_query($instancia, " DELETE FROM clientes WHERE idcliente = $a");
         }
     }
     function listar_cliente(){
 
-        $instancia = Conexion::obtenerConexion();
+        $instancia = conexion::obtenerconexion();
         $resultadoa = mysqli_query($instancia, "SELECT *  FROM clientes");
         
         while ($consultaa = mysqli_fetch_array($resultadoa)) {

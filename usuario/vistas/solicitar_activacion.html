@@ -1,0 +1,164 @@
+<div id="app">
+  <div id="progreso" onload="">
+    <div class="progress-bar" style="text-align: center; line-height: 75px">
+      <div class="nue" style="flex-grow: 3">
+        <div class="botones" v-on:click="goBack">Atras</div>
+      </div>
+      <div style="flex-grow: 8">
+        <div><strong style="text-transform: uppercase">{{titulo}}</strong></div>
+      </div>
+      <div class="nue" style="flex-grow: 3">
+        <div class="botones" v-on:click="siguiente" v-if="etapa">Siguiente</div>
+        <div class="botones" v-on:click="registrar_pedido" v-if="!etapa">
+          Enviar
+        </div>
+      </div>
+    </div>
+    <div class="form" v-if="etapa">
+      <!-- <h4>REGISTRAR SOLICITUD DE ACTIVACIÓN DE DISPOSITIVO</h4> -->
+
+      <label>ID</label>
+      <input
+        type="text"
+        name="id"
+        v-model="idproducto"
+        id="id"
+        v-on:change="comprobariddispositivo"
+        required
+        placeholder="ID del dispositivo"
+      />
+      <div id="menid"></div>
+      <label>PAC</label>
+      <input
+        type="text"
+        name="pac"
+        id="pac"
+        v-on:change="comprobarpacdispositivo"
+        v-model="pacproducto"
+        required
+        placeholder="Codigo PAC del dispositivo"
+      />
+    </div>
+    <div id="menpac"></div>
+    <!-- segunda etapa -->
+    <div class="contenedor" v-if="!etapa">
+      <div class="form">
+        <label>Apellidos</label>
+        <input
+          type="text"
+          name="apellidos"
+          v-model="apellidos"
+          id="apellidos"
+          required
+        />
+
+        <label>Nombres</label>
+        <input
+          type="text"
+          name="nombres"
+          id="nombres"
+          v-model="nombres"
+          required
+        />
+        <label>DNI</label>
+        <input
+          type="number"
+          name="dni"
+          id="dni"
+          v-model="dni"
+          required
+          v-on:change="validar_dni"
+          maxlength="8"
+        />
+      </div>
+      <div class="form">
+        <label>Correo</label>
+        <input
+          type="email"
+          name="correo"
+          v-model="correo"
+          id="correo"
+          v-on:change="validar_email"
+          required
+        />
+
+        <label>Telefono</label>
+        <input
+          type="number"
+          name="telefono"
+          id="telefono"
+          v-model="telefono"
+          v-on:change="validar_telefono"
+          maxlength="10"
+          required
+        />
+      </div>
+    </div>
+  </div>
+  <div id="mensaje">
+    <div class="mascara">
+      <div class="mensaje">
+        <button
+          style="
+            position: absolute;
+            cursor: pointer;
+            top: 15px;
+            right: 20px;
+            background-color: #003564;
+            color: white;
+            border-radius: 1em;
+            border: none;
+            font-size: 20px;
+          "
+          onclick="cerrar()"
+        >
+          X
+        </button>
+        <i
+          class="fas fa-exclamation-triangle"
+          style="font-size: 45px; color: #544df1"
+        ></i>
+
+        <p>
+          Para obtener el ID y PAC de su dispositivo,<br />
+          por favor siga los pasos indicados
+          <a href="https://www.teca.pe/activa-tu-devkit">aquí</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="mascara" v-if="mensaje">
+    <div class="mensaje">
+      <h4>Su solicitud a sido registrada</h4>
+      <input type="button" value="Aceptar" v-on:click="terminar" />
+    </div>
+  </div>
+</div>
+
+<style>
+  .form {
+    width: 100%;
+    max-width: 600px;
+
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .form input {
+    width: 70%;
+    height: 30px;
+    margin: 0.5rem;
+  }
+
+  .form button {
+    padding: 0.5em 1em;
+    border: none;
+    background: rgb(100, 200, 255);
+    cursor: pointer;
+    margin: 0.5rem;
+  }
+</style>
