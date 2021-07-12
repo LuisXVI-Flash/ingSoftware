@@ -117,14 +117,14 @@
 .sidebar__content{
 top: 96px;
 left: 0;
-background: #fff;
+background: #FFFF;
 width: 250px;
-height: 90vh;
+min-height: 100vh;
 transform: translate(0px);
 transition: transform 0.8s ease,display 0.3s ease;
-border: 1px solid #51AFDA;
+/*border: 1px solid #51AFDA;
 border-top-right-radius: 20px;
-border-bottom-right-radius: 20px;
+border-bottom-right-radius: 20px;*/
 transition: margin 0.3s ease;
 }
 
@@ -481,14 +481,16 @@ color: #fff;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 2px solid #006cbe;
+
   border-radius: 5px;
   margin-left: 10px;
-  transition: background 0.3s ease, color 0.3s ease;
+  background: #5250F1;
+  color: #fff;
+ /* transition: background 0.3s ease, color 0.3s ease;*/
 }
 
 .card__atendido:hover{
-  background: #7cc8ffd0;
+  background: #6492FF;
   color: #fff;
   cursor: pointer;
 }
