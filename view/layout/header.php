@@ -37,12 +37,20 @@
     crossorigin="anonymous"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
     <script src="./js/busqueda_cliente.js"></script>
+    <style>
+      .btn-link, .btn-link:hover, .btn-link:active, .btn-link:visited {
+       text-decoration:none;
+}
+.btn-primary , .btn-primary:active, .btn-primary:visited {
+      background:#5250F1;
+      border:none;
+    </style>
   </head>
   <body>
     <?php
             if (isset($_SESSION["idcargo"])) {
               ?>
-    <nav class="navbar navbar-light" style="background-color: #003862">
+    <nav class="navbar navbar-light" style="background-color: #003862;">
       <div class="container-fluid">
         <ul class="nav justify-content-start">
           <li class="nav-item">
@@ -61,7 +69,7 @@
               class="iconify"
               data-inline="false"
               data-icon="bx:bx-user"
-              style="color: #FFFF; font-size: 50px"
+              style="color: #FFFF; font-size: 50px; "
             ></span>
           </li>
           <li class="nav-item">
