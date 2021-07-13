@@ -8,7 +8,7 @@ class conexion
 	{
 		if ( self::$instancia == null )
 		{
-			self::$instancia = new mysqli("127.0.0.1","root","teca_untels@","teca");
+			self::$instancia = new mysqli("127.0.0.1","root","12345678","teca");
 		}
 
 		return self::$instancia;
@@ -21,7 +21,7 @@ class conexion
 	}
 	private $conexion;
 	public function __construct(){
-        $this->conexion = mysqli_connect("127.0.0.1","root","teca_untels@","teca");
+        $this->conexion = mysqli_connect("127.0.0.1","root","12345678","teca");
     }
 
     public function get(){
@@ -39,7 +39,7 @@ class conexion
 		$host = "127.0.0.1"; //127.0.0.1 0 localhost
 		$db = "teca"; //base de datos de mysql
 		$user = "root"; // usuario de mysql
-		$password = "teca_untels@";       //contraseña de mysql
+		$password = "12345678";       //contraseña de mysql
 	 
 	 //conexion a la base datos utilizando pdo
 	  $db = new PDO("mysql:host=$host;dbname=$db;", $user, $password);
