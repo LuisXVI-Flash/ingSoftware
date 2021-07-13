@@ -25,6 +25,8 @@ if(isset($_SESSION["idcargo"])){
     }elseif($_GET["vista"]=="atendidos2"){
         require_once("./view/vista_principal.html");
         require_once("./controllers/controlador_noatendidos.php");
+    }elseif($_GET["vista"]=="usuarios"){
+        require_once("./controllers/controller_Trabajador.php");
     }else{
         require_once("./view/vista_principal.html");
     }
