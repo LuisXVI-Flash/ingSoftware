@@ -17,8 +17,8 @@ new Vue({
             correo: null,
             telefono: null,
             titulo:"Activacion del contrato SigFox",
-            mensaje:null,
-            etapa:true,
+            mensaje:"Siguiente",
+            etapa:1,
         }
     },
     
@@ -58,8 +58,9 @@ new Vue({
                   });
             }
         },
-        comprobarpacdispositivo() {
-
+        comprobarpacdispositivo(e) {
+            // console.log('hola')
+            // console.log(e.target.value)
             var url = './controladores/api_dispositivo.php';
             var peticion = {
                 "pacproducto": this.pacproducto,
@@ -93,7 +94,7 @@ new Vue({
             }
         },
         siguiente(){
-            
+            if(this.etapa!=3){
             var url = './controladores/api_dispositivo.php';
             var peticion = {
                 "pacproducto": this.pacproducto,
@@ -112,7 +113,7 @@ new Vue({
                 .then((data) =>{
                     if(data=="1"){
                         console.log("hola");
-                        this.etapa=!this.etapa;
+                        this.etapa=2;
                         this.titulo="Registro Cliente";
                        
                     }else{
@@ -126,7 +127,9 @@ new Vue({
                 }else{
                     alert("ingrese datos");
                 }
-            
+            }else{
+                window.location.replace("index.php");
+            }
         },
         
         validar_email(){
@@ -182,7 +185,10 @@ new Vue({
                 .then((res) => res.json())
                 .then((data) =>{
                     if(data=="1"){
-                        this.mensaje="registrado";
+                        // this.mensaje="registrado";
+                        this.etapa=3;
+                        this.mensaje="Volver al inicio";
+                        
                     }else{
                         alert("error al registras solicitud de activacion. Vuelva a intentarlo");
                     }
@@ -200,10 +206,10 @@ new Vue({
                 }
         },
         goBack() {
-            if(this.etapa){
+            if(this.etapa==1){
                 window.history.back();
-            }else{
-                this.etapa=!this.etapa;
+            }if(this.etapa==2){
+                this.etapa=1;
                 this.titulo="Activacion Dispositivo";
             }
             
