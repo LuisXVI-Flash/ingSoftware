@@ -103,6 +103,7 @@ li {
 .contenedor{
   margin-top:35px;
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   width: 100%;
 }
