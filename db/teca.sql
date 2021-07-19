@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 25-06-2021 a las 18:58:16
+-- Tiempo de generación: 19-07-2021 a las 04:15:03
 -- Versión del servidor: 8.0.17
 -- Versión de PHP: 7.3.10
 
@@ -63,12 +63,11 @@ CREATE TABLE `clientes` (
 --
 
 INSERT INTO `clientes` (`idcliente`, `nombres`, `apellidos`, `correo`, `dni`, `celular`) VALUES
-(1, 'Isabella', 'Caballero Moreno', 'isabelitacancer@gmail.com', 78965412, 987456321),
-(2, 'Aera', 'asrarasr', 'askdaksd@gmual.com', 13123123, 987654321),
-(5, 'victor', 'quispe quispe', 'victor@gamil.com', 89021353, 934596875),
-(6, 'manuel', 'gonzales', 'manu@gamiml.com', 98238423, 934596834),
-(22, 'Janeth', 'Huamantinco Asis', 'janethjrha@gmail.com', 78945612, 987654321),
-(23, 'Daniel', 'Durand rosas', 'daniel@gmail.com', 78945613, 987654322);
+(1, 'Isabella Susana', 'Caballero Moreno', 'isabelitacancer@gmail.com', 78965412, 987456321),
+(24, 'Antonio', 'Arqque', 'aarqque@untels.edu.pe', 78945612, 987654321),
+(25, 'Janeth', 'Huamantinco Asis', 'janethjrha@gmail.com', 78654321, 987654321),
+(26, 'Raul', 'Huarote', 'askdaksd@gmual.com', 98765432, 987654321),
+(36, 'Luis', 'Izquierdo Rojas', 'askdaksd@gmual.com', 78945612, 987654321);
 
 -- --------------------------------------------------------
 
@@ -88,15 +87,13 @@ CREATE TABLE `producto` (
 --
 
 INSERT INTO `producto` (`idproducto`, `id`, `pac`, `estado`) VALUES
-(1, 654421, 'dkrt4554drfg', 1),
 (3, 52114, 'wjjdhfj657541', 0),
 (4, 4466521, '9898745656', 0),
 (5, 456879, '8789525321', 0),
 (6, 8521456, '6422', 0),
-(7, 54654, 'ughkj', 1),
-(8, 98798, 'jhlkj', 1),
-(9, 89465, 'fgugiuh', 1),
-(10, 4865, 'uhbuoi', 1);
+(12, 1232312, '213434', 0),
+(13, 1232312, '213434', 0),
+(14, 8080, '655244545322784', 0);
 
 -- --------------------------------------------------------
 
@@ -106,7 +103,7 @@ INSERT INTO `producto` (`idproducto`, `id`, `pac`, `estado`) VALUES
 
 CREATE TABLE `solicitud` (
   `idsolicitud` int(11) NOT NULL,
-  `fecha` date NOT NULL,
+  `fecha` timestamp NOT NULL,
   `idproducto` int(11) NOT NULL,
   `idcliente` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -116,15 +113,9 @@ CREATE TABLE `solicitud` (
 --
 
 INSERT INTO `solicitud` (`idsolicitud`, `fecha`, `idproducto`, `idcliente`) VALUES
-(1, '2021-05-03', 1, 1),
-(6, '2021-06-26', 4, 2),
-(7, '2021-06-22', 3, 1),
-(11, '2021-06-08', 6, 22),
-(12, '2021-06-29', 5, 22),
-(13, '2021-06-29', 7, 6),
-(14, '2021-06-16', 8, 22),
-(16, '2021-06-22', 9, 6),
-(17, '2021-06-20', 10, 1);
+(9, '2021-06-26 05:00:00', 13, 1),
+(10, '2021-06-29 05:00:00', 14, 25),
+(20, '2021-07-19 04:14:28', 6, 24);
 
 -- --------------------------------------------------------
 
@@ -149,7 +140,10 @@ CREATE TABLE `trabajadores` (
 
 INSERT INTO `trabajadores` (`idtrabajador`, `nombres`, `apellidos`, `correo`, `contraseña`, `usuario`, `idcargo_trabajador`, `estado`) VALUES
 (4, 'Lucio', 'Ramirez Gonzales', 'lucio@gmail.com', '21232f297a57a5a743894a0e4a801fc3', 'LuisXVI', 1, 1),
-(5, 'Jose', 'Castro', 'jose@gmail.com', '987', '98754613', 3, 0);
+(5, 'Jose', 'Castro', 'jose@gmail.com', '987', '98754613', 3, 0),
+(21, 'Janeth Rosario', 'Huamantinco Asis', 'janethjrha@gmail.com', 'a906449d5769fa7361d7ecc6aa3f6d28', 'janeth123', 3, 1),
+(24, 'Antonio', 'Arqque', 'gaa@gaa.com', 'a906449d5769fa7361d7ecc6aa3f6d28', 'aarqque', 2, 1),
+(25, 'Romel Alexis', 'Carrasco Mallma', 'ppp@pp.com', '1fa591128e20aed5298081f96090e2b3', 'romeliano', 1, 1);
 
 --
 -- Índices para tablas volcadas
@@ -178,7 +172,7 @@ ALTER TABLE `producto`
 --
 ALTER TABLE `solicitud`
   ADD PRIMARY KEY (`idsolicitud`),
-  ADD UNIQUE KEY `idproducto` (`idproducto`),
+  ADD KEY `idproducto` (`idproducto`) USING BTREE,
   ADD KEY `idcliente` (`idcliente`) USING BTREE;
 
 --
@@ -186,7 +180,7 @@ ALTER TABLE `solicitud`
 --
 ALTER TABLE `trabajadores`
   ADD PRIMARY KEY (`idtrabajador`),
-  ADD UNIQUE KEY `idcargo_trabajador` (`idcargo_trabajador`);
+  ADD KEY `idcargo_trabajador` (`idcargo_trabajador`) USING BTREE;
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -202,25 +196,25 @@ ALTER TABLE `cargo_trabajador`
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `idcliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `idcliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `idproducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `idproducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `solicitud`
 --
 ALTER TABLE `solicitud`
-  MODIFY `idsolicitud` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `idsolicitud` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `trabajadores`
 --
 ALTER TABLE `trabajadores`
-  MODIFY `idtrabajador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idtrabajador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- Restricciones para tablas volcadas
