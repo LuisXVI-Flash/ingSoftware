@@ -44,6 +44,7 @@
 .btn-primary , .btn-primary:active, .btn-primary:visited {
       background:#5250F1;
       border:none;
+}
     </style>
   </head>
   <body>
