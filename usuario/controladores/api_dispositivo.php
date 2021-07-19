@@ -24,9 +24,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $result=mysqli_fetch_array(mysqli_query($conexion,$sql));
                 $var8=$result["idcliente"] ;
                 $sql="SELECT idproducto FROM producto WHERE id='{$val1}'";
-               
+                
                 $result=mysqli_fetch_array(mysqli_query($conexion,$sql));
-                $var9=$result["idproducto"] ;
+                $var9=$result["idproducto"];
+
+                date_default_timezone_set('America/Los_Angeles');
                 $var10=date('Y-m-d H:i:s');
                 $sql="INSERT INTO solicitud (fecha, idproducto, idcliente) VALUES ('{$var10}','{$var9}','{$var8}')";
                
