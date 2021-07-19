@@ -1,17 +1,7 @@
 
 <div class="container__grid">
 <br><h4 style="text-align: center;" class="card-title">Lista de Dispositivos</h4><br><br>
-            <div  class="content__table">
-                <form method="GET" id="formbuscar" autocapitalize="false" autocomplete="off" class="row g-3">
-                    <div class="col-auto">
-                        <input type="text" name="buscar" id="buscar" class="form-control">
-                    </div>
-                    <div class="col-auto">
-                    <input class="btn btn-primary" type="submit" value="buscar" placeholder="busqueda.." id="btnbuscar">
-                    </div>
-                </form>
-
-            </div><br>
+        <br>
 <!--<div class="alert" id="mensaje"></div>-->
 <div class="content__table">
 <br><br>
@@ -20,16 +10,18 @@
 </form>
 </div>
 <div class="content__table">
-    <table  class="table table-hover my-4" style="width: 80%;">
+    <table  id="table_productos"  class="table table-hover my-4" style="width: 80%;">
+        
         <thead>
             <tr>
-                <td>ID</td>
-                <td>PAC</td>
-                <td>Estado</td>
-                <td>Acciones</td>
+                <th scope="col">ID</th>
+                <th scope="col">PACK</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Editar</th>
+                <th scope="col">Eliminar</th>
             </tr>
         </thead>
-        
+
         
             <tbody id="tbody">
 
@@ -38,24 +30,7 @@
         
     </table>
 
-<template id="template-table">
 
-    <tr class="trow">
-        
-        <td class="my-2" id="id" name="id"></td>
-        <td class="my-2" id="pac" name="pack"></td>
-        <td class="my-2" id="estado" name="estado"></td>
-        <td class="my-2" style="display:flex;flex-direction:row">
-        
-        <!-- <button type="submit" class="btn  btn-secondary btn-sm" id="Actualizar" name="Actualizar">Actualizar</button>
-        <button type="submit" class="btn btn-primary btn-sm" id="Borrar" name="Borrar" >Borrar</button> -->
-        <a href="" id="editar" class="btn btn-primary mx-2 my-2">Editar</a>
-        <a href="" id="eliminar"class="btn btn-danger my-2">Eliminar</a>
-        </td>
-     
-    </tr>
- 
-</template>
 
 </div>
 <div id="datos">
