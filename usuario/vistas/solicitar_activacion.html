@@ -24,21 +24,24 @@
         name="id"
         v-model="idproducto"
         id="id"
-        v-on:change="comprobariddispositivo"
+        v-on:keyup="comprobariddispositivo"
         required
         placeholder="ID del dispositivo"
       />
+      <div class="message" id="messageid"></div>
       <div id="menid"></div>
       <label>PAC</label>
       <input
         type="text"
         name="pac"
         id="pac"
-        v-on:change="comprobarpacdispositivo"
+        v-on:keyup="comprobarpacdispositivo"
         v-model="pacproducto"
         required
         placeholder="Codigo PAC del dispositivo"
       />
+      <div class="message" id="messagepac"></div>
+      <div class="message" id="messagestep1"></div>
     </div>
     <!-- {{pacproducto}} -->
     <div id="menpac"></div>
@@ -54,7 +57,7 @@
           placeholder="arias"
           required
         />
-
+        <div class="message" id="messageape"></div>
         <label>Nombres</label>
         <input
           type="text"
@@ -64,6 +67,7 @@
           required
           placeholder="pedro"
         />
+        <div class="message" id="messagenom"></div>
         <label>DNI</label>
         <input
           type="number"
@@ -71,10 +75,11 @@
           id="dni"
           v-model="dni"
           required
-          v-on:change="validar_dni"
+          v-on:keyup="validar_dni"
           placeholder="23472398"
           maxlength="8"
         />
+        <div class="message" id="messageid"></div>
       </div>
       <div class="form">
         <label>Correo</label>
@@ -83,22 +88,23 @@
           name="correo"
           v-model="correo"
           id="correo"
-          v-on:change="validar_email"
+          v-on:keyup="validar_email"
           placeholder="pedro@gmail.com"
           required
         />
-
+        <div class="message" id="messagecor"></div>
         <label>Telefono</label>
         <input
           type="number"
           name="telefono"
           id="telefono"
           v-model="telefono"
-          v-on:change="validar_telefono"
+          v-on:keyup="validar_telefono"
           max="9"
           placeholder="994538903"
           required
         />
+        <div class="message" id="messagetel"></div>
       </div>
     
     </div>

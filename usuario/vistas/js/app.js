@@ -1,5 +1,4 @@
 
-
 function cerrar(){
     document.getElementById("mensaje").innerHTML="";
 
@@ -42,13 +41,17 @@ new Vue({
                 .then((res) => res.json())
                 .then((data) =>{
                     if(data=="1"){
-                        
-                        
-                        document.getElementById("id").setAttribute("style","border:1px solid black");
+                        document.getElementById("id").setAttribute("style","border:2px solid green");
+                        document.getElementById("messageid").innerHTML=`<h4>id encontrado</h4>`;
+                        document.getElementById("messageid").classList.add('correct__message')
+                        document.getElementById("messageid").classList.remove('warning__message')
                         // document.getElementById("menid").innerHTML="";
                     }else{
                         document.getElementById("id").setAttribute("style","border:2px solid red");
-                        alert("Error ingrese un id valido")
+                        document.getElementById("messageid").innerHTML=`<h4>id no encontrado</h4>`;
+                        document.getElementById("messageid").classList.remove('correct__message')
+                        document.getElementById("messageid").classList.add('warning__message')
+                        // alert("Error ingrese un id valido")
                         // document.getElementById("menid").innerHTML="Error ingrese un valor valido";
                     }
                     
@@ -78,13 +81,18 @@ new Vue({
                 .then((res) => res.json())
                 .then((data) =>{
                     if(data=="1"){
-                        
-                        document.getElementById("pac").setAttribute("style","border:1px solid black");
-                        // document.getElementById("menpac").innerHTML="";
+                        document.getElementById("pac").setAttribute("style","border:2px solid green");
+                        document.getElementById("pac").innerHTML=`pac encontrado`;
+                        document.getElementById("messagepac").innerHTML=`<h4>pac encontrado</h4>`;
+                        document.getElementById("messagepac").classList.add('correct__message')
+                        document.getElementById("messagepac").classList.remove('warning__message')
                     }else{
                         document.getElementById("pac").setAttribute("style","border:2px solid red");
+                        document.getElementById("messagepac").innerHTML=`<h4>pac no encontrado</h4>`;
+                        document.getElementById("messagepac").classList.remove('correct__message')
+                        document.getElementById("messagepac").classList.add('warning__message')
                         // document.getElementById("menpac").innerHTML="Error ingrese un valor valido";
-                        alert("Error ingrese un pac valido");
+                        // alert("Error ingrese un pac valido");
                     }
                     
                 })
@@ -115,7 +123,8 @@ new Vue({
                         console.log("hola");
                         this.etapa=2;
                         this.titulo="Registro Cliente";
-                       
+                        document.getElementById("messageid").innerHTML=`<h4></h4>`;
+                        document.getElementById("messagepac").innerHTML=`<h4></h4>`;
                     }else{
                         
                     }
@@ -125,27 +134,39 @@ new Vue({
                     
                   });
                 }else{
-                    alert("ingrese datos");
+                    document.getElementById("pac").setAttribute("style","border:2px solid red");
+                    document.getElementById("id").setAttribute("style","border:2px solid red");
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Rellene todos los campos',
+                      })
+                    // alert("ingrese datos");
                 }
             }else{
                 window.location.replace("index.php");
+                document.getElementById("messagestep1").innerHTML=`<h4></h4>`;
             }
         },
         
         validar_email(){
             if (/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i.test(this.correo)){
+                document.getElementById("correo").setAttribute("style","border:2px solid green");
                 return true;
                } else {
-                alert("La dirección de email es incorrecta!.");
+                document.getElementById("correo").setAttribute("style","border:2px solid red");
+                // alert("La dirección de email es incorrecta!.");
                 return false;
                }
         },
         validar_telefono(){
             let dato= Array.from((this.telefono.trim()));
             if(dato.length<7 || dato.length>11 ){
-                alert("el telefono debe ser de 7 a 11 caracteres ");
+                // alert("el telefono debe ser de 7 a 11 caracteres ");
+                document.getElementById("telefono").setAttribute("style","border:2px solid red");
                 return false;
             }else{
+                document.getElementById("telefono").setAttribute("style","border:2px solid green");
                 return true;
             }
         },
@@ -153,12 +174,28 @@ new Vue({
         validar_dni(){
             let dato= Array.from((this.dni.trim()));
             if(dato.length!=8){
-                alert("el dni debe ser de 8 caracteres ");
+                // alert("el dni debe ser de 8 caracteres ");
+                document.getElementById("dni").setAttribute("style","border:2px solid red");
                 return false;
             }else{
+                document.getElementById("dni").setAttribute("style","border:2px solid green");
                 return true;
             }
 
+        },
+        validar_name(){
+            let dato= Array.from((this.nombres.trim()));
+            console.log(typeof dato)
+            console.log(this.nombres)
+            console.log('hola mundo')
+            if(dato.length!=8){
+                // alert("el dni debe ser de 8 caracteres ");
+                document.getElementById("nombres").setAttribute("style","border:2px solid red");
+                return false;
+            }else{
+                document.getElementById("nombres").setAttribute("style","border:2px solid green");
+                return true;
+            }
         },
         registrar_pedido(){
                 
@@ -174,7 +211,7 @@ new Vue({
             };
             
             if(this.pacproducto!=null && this.pacproducto.trim()!="" && this.idproducto!=null && this.idproducto.trim()!=""&&this.nombres!=null && this.nombres.trim()!=""&&this.apellidos!=null && this.apellidos.trim()!=""&&this.correo!=null && this.correo.trim()!=""&&this.telefono!=null && this.telefono.trim()!=""){
-            if(this.validar_dni&&this.validar_telefono&&this.validar_email){
+            if(this.validar_dni&&this.validar_telefono&&this.validar_email&&this.validar_name){
                 fetch(url, {
                 body: JSON.stringify(peticion),
                 method: "POST",
@@ -196,13 +233,33 @@ new Vue({
                 })
                 .catch(function(error) {
                     console.log('Hubo un problema con la petición ' + error.message);
-                    alert("error al registrar su solicitud");
+                    // alert("error al registrar su solicitud");
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Error el el Dispositivo ya ha sido registrado',
+                      })
                   });
                 }else{
-                    alert("rellene todo los campos primero");
+                    // alert("rellene todo los campos primero");
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Rellene todos los campos',
+                      })
                 }
                 }else{
-                    alert("ingrese primero los datos");
+                    // alert("ingrese primero los datos");
+                    // document.getElementById("apellidos").setAttribute("style","border:2px solid red");
+                    // document.getElementById("nombres").setAttribute("style","border:2px solid red");
+                    // document.getElementById("dni").setAttribute("style","border:2px solid red");
+                    // document.getElementById("correo").setAttribute("style","border:2px solid red");
+                    // document.getElementById("telefono").setAttribute("style","border:2px solid red");
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Rellene todos los campos',
+                      })
                 }
         },
         goBack() {

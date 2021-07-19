@@ -101,7 +101,6 @@ li {
   height: 45px;
 }
 .contenedor{
-  margin-top:35px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -251,4 +250,23 @@ li {
   .content__step1{
     margin-top: 40px;
   }
+}
+
+/* class call actions */
+
+/* .correct{
+  border:2px solid rgb(21, 173, 1);
+}
+
+.warning{
+  border:2px solid rgb(255, 5, 5);
+} */
+.correct__message{
+  color:green;
+  /* font-weight: 600; */
+}
+
+.warning__message{
+  color: red;
+  /* font-weight: 300; */
 }
