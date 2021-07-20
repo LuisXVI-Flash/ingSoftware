@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             $conex = new conexion;
             $conexion = $conex::obtenerconexion();
-            $sql = "SELECT * from producto WHERE id = '{$valor1}' AND pac='{$valor2}' ";
+            $sql = "SELECT * from producto WHERE id = '{$valor1}' AND pac='{$valor2}' AND estado='0'";
             //  echo $sql;
             $array = mysqli_query($conexion, $sql);
             // var_dump($array);

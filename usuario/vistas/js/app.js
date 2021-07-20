@@ -135,12 +135,12 @@ new Vue({
                         document.getElementById("messageid").innerHTML=`<h4></h4>`;
                         document.getElementById("messagepac").innerHTML=`<h4></h4>`;
                     }else{
-                        document.getElementById("pac").setAttribute("style","border:2px solid red");
+                    document.getElementById("pac").setAttribute("style","border:2px solid red");
                     document.getElementById("id").setAttribute("style","border:2px solid red");
                     Swal.fire({
                         icon: 'error',
                         title: 'Oops...',
-                        text: 'Pac o Id incorrecto',
+                        text: 'Pac o Id incorrecto / o se encuentra activo',
                       })
                     }
                     
