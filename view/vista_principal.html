@@ -4,11 +4,13 @@
 
         if ($_SESSION['idcargo'] == 1) {
         ?>
+        <br><br>  <a class="nav-link disabled" href="#"><h6>GENERAL</h6></a>
+            <a href="index.php"><button class="btn btn-link" name="listar" type="submit"><h6>Dashboard</h6></button></a>
         <?php } ?>
         <?php
         if ($_SESSION['idcargo'] == 1 || $_SESSION['idcargo'] == 2 || $_SESSION['idcargo'] == 3) {
         ?>
-          <br><br>  <a class="nav-link disabled" href="#"><h6>GESTIÓN</h6></a>
+          <a class="nav-link disabled" href="#"><h6>GESTIÓN</h6></a>
 
         <?php } ?>
         <?php

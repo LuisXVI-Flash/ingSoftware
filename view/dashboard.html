@@ -38,6 +38,14 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.4.1/dist/chart.min.js"></script>
 <script>
+  fetch("./controllers/controlador_dashboard.php",{method: "POST"})
+  .then(function(res){ return res.json(); })
+.then(function(data){ alert( JSON.stringify( data ) ) })
+
+
+
+
+
   var ctx = document.getElementById("myChart").getContext("2d");
   var myChart = new Chart(ctx, {
     type: "bar",
@@ -115,10 +123,14 @@
   });
 </script>
 <style>
+  body{
+    overflow-y: hidden;
+    overflow-x: hidden;
+  }
   .container_dashboard {
     display: flex;
     flex-direction: column;
-    width: 100%;
+     width:100% ;
     justify-content: center;
     align-items: center;
   }

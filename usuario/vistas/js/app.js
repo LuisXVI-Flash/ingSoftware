@@ -205,7 +205,7 @@ new Vue({
             console.log(typeof dato)
             console.log(this.apellidos)
             console.log('hola mundo')
-            if(dato.length!=8 && !(/^[A-Z]+$/i.test(this.apellidos.trim()))){
+            if(dato.length!=8 && !(/^[A-Z\s]+$/i.test(this.apellidos.trim()))){
                 alert("formato de nombre invalido");
                 document.getElementById("apellidos").setAttribute("style","border:2px solid red");
                 return false;
@@ -219,7 +219,7 @@ new Vue({
             console.log(typeof dato)
             console.log(this.nombres)
             console.log('hola mundo')
-            if(dato.length!=8 && !(/^[A-Z]+$/i.test(this.nombres.trim()))){
+            if(dato.length!=8 && !(/^[A-Z\s]+$/i.test(this.nombres.trim()))){
                 alert("formato de nombre invalido");
                 document.getElementById("nombres").setAttribute("style","border:2px solid red");
                 return false;
