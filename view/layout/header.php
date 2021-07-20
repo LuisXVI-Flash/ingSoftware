@@ -37,6 +37,7 @@
     crossorigin="anonymous"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
     <script src="./js/busqueda_cliente.js"></script>
+    <script src="./js/busqueda_producto.js"></script>
   </head>
   <body>
     <?php
