@@ -7,7 +7,7 @@ $disActivos=$dis->getProductosActivos();
 $disInactivos=$dis->getProductosInactivos();
 
 $instancia = conexion::obtenerconexion();
-$fecha=date("Y-m-d");
+$fecha=date("Y-m-d")."%";
 $resultadoa = mysqli_query($instancia, "SELECT COUNT(*) FROM `solicitud` WHERE fecha like '{$fecha}'");
 $solhoy = mysqli_fetch_array($resultadoa);
 
