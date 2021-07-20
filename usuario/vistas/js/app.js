@@ -30,35 +30,39 @@ new Vue({
             };
             if(this.idproducto!=null && this.idproducto.trim()!=""){
 
-            
-            fetch(url, {
-                body: JSON.stringify(peticion),
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-              })
-                .then((res) => res.json())
-                .then((data) =>{
-                    if(data=="1"){
-                        document.getElementById("id").setAttribute("style","border:2px solid green");
-                        document.getElementById("messageid").innerHTML=`<h4>id encontrado</h4>`;
-                        document.getElementById("messageid").classList.add('correct__message')
-                        document.getElementById("messageid").classList.remove('warning__message')
-                        // document.getElementById("menid").innerHTML="";
-                    }else{
-                        document.getElementById("id").setAttribute("style","border:2px solid red");
-                        document.getElementById("messageid").innerHTML=`<h4>id no encontrado</h4>`;
-                        document.getElementById("messageid").classList.remove('correct__message')
-                        document.getElementById("messageid").classList.add('warning__message')
-                        // alert("Error ingrese un id valido")
-                        // document.getElementById("menid").innerHTML="Error ingrese un valor valido";
-                    }
+            if(/([A-Z0-9])/.test(this.idproducto)){
+                document.getElementById("id").setAttribute("style","border:2px solid green");
+            }else{
+                document.getElementById("id").setAttribute("style","border:2px solid red");
+            }
+            // fetch(url, {
+            //     body: JSON.stringify(peticion),
+            //     method: "POST",
+            //     headers: {
+            //       "Content-Type": "application/json",
+            //     },
+            //   })
+            //     .then((res) => res.json())
+            //     .then((data) =>{
+            //         if(data=="1"){
+            //             document.getElementById("id").setAttribute("style","border:2px solid green");
+            //             document.getElementById("messageid").innerHTML=`<h4>id encontrado</h4>`;
+            //             document.getElementById("messageid").classList.add('correct__message')
+            //             document.getElementById("messageid").classList.remove('warning__message')
+            //             // document.getElementById("menid").innerHTML="";
+            //         }else{
+            //             document.getElementById("id").setAttribute("style","border:2px solid red");
+            //             document.getElementById("messageid").innerHTML=`<h4>id no encontrado</h4>`;
+            //             document.getElementById("messageid").classList.remove('correct__message')
+            //             document.getElementById("messageid").classList.add('warning__message')
+            //             // alert("Error ingrese un id valido")
+            //             // document.getElementById("menid").innerHTML="Error ingrese un valor valido";
+            //         }
                     
-                })
-                .catch(function(error) {
-                    console.log('Hubo un problema con la petición ' + error.message);
-                  });
+            //     })
+            //     .catch(function(error) {
+            //         console.log('Hubo un problema con la petición ' + error.message);
+            //       });
             }
         },
         comprobarpacdispositivo(e) {
@@ -70,38 +74,43 @@ new Vue({
             };
             if(this.pacproducto!=null && this.pacproducto.trim()!=""){
 
-            
-            fetch(url, {
-                body: JSON.stringify(peticion),
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-              })
-                .then((res) => res.json())
-                .then((data) =>{
-                    if(data=="1"){
-                        document.getElementById("pac").setAttribute("style","border:2px solid green");
-                        document.getElementById("pac").innerHTML=`pac encontrado`;
-                        document.getElementById("messagepac").innerHTML=`<h4>pac encontrado</h4>`;
-                        document.getElementById("messagepac").classList.add('correct__message')
-                        document.getElementById("messagepac").classList.remove('warning__message')
-                    }else{
-                        document.getElementById("pac").setAttribute("style","border:2px solid red");
-                        document.getElementById("messagepac").innerHTML=`<h4>pac no encontrado</h4>`;
-                        document.getElementById("messagepac").classList.remove('correct__message')
-                        document.getElementById("messagepac").classList.add('warning__message')
-                        // document.getElementById("menpac").innerHTML="Error ingrese un valor valido";
-                        // alert("Error ingrese un pac valido");
-                    }
+                if(/([A-Z0-9])/.test(this.pacproducto)){
+                    document.getElementById("pac").setAttribute("style","border:2px solid green");
+                }else{
+                    document.getElementById("pac").setAttribute("style","border:2px solid red");
+                }
+            // fetch(url, {
+            //     body: JSON.stringify(peticion),
+            //     method: "POST",
+            //     headers: {
+            //       "Content-Type": "application/json",
+            //     },
+            //   })
+            //     .then((res) => res.json())
+            //     .then((data) =>{
+            //         if(data=="1"){
+            //             document.getElementById("pac").setAttribute("style","border:2px solid green");
+            //             document.getElementById("pac").innerHTML=`pac encontrado`;
+            //             document.getElementById("messagepac").innerHTML=`<h4>pac encontrado</h4>`;
+            //             document.getElementById("messagepac").classList.add('correct__message')
+            //             document.getElementById("messagepac").classList.remove('warning__message')
+            //         }else{
+            //             document.getElementById("pac").setAttribute("style","border:2px solid red");
+            //             document.getElementById("messagepac").innerHTML=`<h4>pac no encontrado</h4>`;
+            //             document.getElementById("messagepac").classList.remove('correct__message')
+            //             document.getElementById("messagepac").classList.add('warning__message')
+            //             // document.getElementById("menpac").innerHTML="Error ingrese un valor valido";
+            //             // alert("Error ingrese un pac valido");
+            //         }
                     
-                })
-                .catch(function(error) {
-                    console.log('Hubo un problema con la petición' + error.message);
-                  });
+            //     })
+            //     .catch(function(error) {
+            //         console.log('Hubo un problema con la petición' + error.message);
+            //       });
             }
         },
         siguiente(){
+
             if(this.etapa!=3){
             var url = './controladores/api_dispositivo.php';
             var peticion = {
@@ -126,7 +135,13 @@ new Vue({
                         document.getElementById("messageid").innerHTML=`<h4></h4>`;
                         document.getElementById("messagepac").innerHTML=`<h4></h4>`;
                     }else{
-                        
+                        document.getElementById("pac").setAttribute("style","border:2px solid red");
+                    document.getElementById("id").setAttribute("style","border:2px solid red");
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Pac o Id incorrecto',
+                      })
                     }
                     
                 })
@@ -152,17 +167,18 @@ new Vue({
         validar_email(){
             if (/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i.test(this.correo)){
                 document.getElementById("correo").setAttribute("style","border:2px solid green");
+                
                 return true;
                } else {
                 document.getElementById("correo").setAttribute("style","border:2px solid red");
-                // alert("La dirección de email es incorrecta!.");
+                alert("La dirección de email no valida");
                 return false;
                }
         },
         validar_telefono(){
             let dato= Array.from((this.telefono.trim()));
-            if(dato.length<7 || dato.length>11 ){
-                // alert("el telefono debe ser de 7 a 11 caracteres ");
+            if((dato.length<7 || dato.length>11)&& /([0-9])/.test(this.telefono.trim()) ){
+                alert("el telefono debe ser de 7 a 11 caracteres numericos");
                 document.getElementById("telefono").setAttribute("style","border:2px solid red");
                 return false;
             }else{
@@ -173,9 +189,10 @@ new Vue({
         
         validar_dni(){
             let dato= Array.from((this.dni.trim()));
-            if(dato.length!=8){
-                // alert("el dni debe ser de 8 caracteres ");
+            if(dato.length<8 || dato.length>8 && !(/([0-9])/.test(this.dni.trim())) ){
+                alert("el dni debe ser de 8 caracteres numericos ");
                 document.getElementById("dni").setAttribute("style","border:2px solid red");
+                
                 return false;
             }else{
                 document.getElementById("dni").setAttribute("style","border:2px solid green");
@@ -183,13 +200,27 @@ new Vue({
             }
 
         },
+        validar_ape(){
+            let dato= Array.from((this.apellidos.trim()));
+            console.log(typeof dato)
+            console.log(this.apellidos)
+            console.log('hola mundo')
+            if(dato.length!=8 && !(/^[A-Z]+$/i.test(this.apellidos.trim()))){
+                alert("formato de nombre invalido");
+                document.getElementById("apellidos").setAttribute("style","border:2px solid red");
+                return false;
+            }else{
+                document.getElementById("apellidos").setAttribute("style","border:2px solid green");
+                return true;
+            }
+        },
         validar_name(){
             let dato= Array.from((this.nombres.trim()));
             console.log(typeof dato)
             console.log(this.nombres)
             console.log('hola mundo')
-            if(dato.length!=8){
-                // alert("el dni debe ser de 8 caracteres ");
+            if(dato.length!=8 && !(/^[A-Z]+$/i.test(this.nombres.trim()))){
+                alert("formato de nombre invalido");
                 document.getElementById("nombres").setAttribute("style","border:2px solid red");
                 return false;
             }else{
