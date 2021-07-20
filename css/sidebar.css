@@ -10,7 +10,7 @@
 .sidebar__content form button{
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
 }
 .sidebar__content form button svg{

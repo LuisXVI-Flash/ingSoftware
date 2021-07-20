@@ -1,41 +1,45 @@
-
 <style type="text/css">
-.col-lg-3 {
+  .col-lg-3 {
     display: none !important;
-}
+  }
 </style>
 
-
 <div class="container__grid1">
-<br><h4 style="text-align: center;" class="card-title">Lista de clientes</h4><br><br>
-<div class="content__table">
-  <form action="index.php?vista=cliente" method="post">
-    <input type="submit" name="btngestionarr" value="Agregar" class="btn btn-primary mx-2" style="float: right">
-</form>  
-</div>
-<div class="content__table">
-    
-    <table id="cliente_romel" class="table table-hover my-4" style="width: 70%;">
-    
-        <thead>
-            <tr>
-                <th scope="col">Código</th>
-                <th scope="col">Nombres</th>
-                <th scope="col">Apellidos</th>
-                <th scope="col">Correo</th>
-                <th scope="col">DNI</th>
-                <th scope="col">Celular</th>
-                <th scope="col">Editar</th>
-                <th scope="col">Eliminar</th>
-            </tr>
-        </thead>
+  <div class="content__title-cliente">
+    <h4 style="text-align: center" class="card-title">Lista de clientes</h4>
+    <form action="index.php?vista=cliente" method="post">
+      <button
+        type="submit"
+        name="btngestionarr"
+        value="Agregar"
+        class="btn btn-primary mx-2"
+        style="float: right"
+      >
+      <img src="./assets/icons/carbon_add-filled.svg" alt="add_file">
+      Agregar
+    </button>
+    </form>
+  </div>
+  <div class="content__table">
+    <table id="cliente_romel" class="table table-hover my-4" style="width: 80%">
+      <thead>
+        <tr>
+          <th scope="col">Código</th>
+          <th scope="col">Nombres</th>
+          <th scope="col">Apellidos</th>
+          <th scope="col">Correo</th>
+          <th scope="col">DNI</th>
+          <th scope="col">Celular</th>
+          <th scope="col">Editar</th>
+          <th scope="col">Eliminar</th>
+        </tr>
+      </thead>
 
-        <tbody>
-            
-            <!-- <?php
+      <tbody>
+        <!-- <?php
             foreach($array as $array){
         ?> -->
-            <!-- <tr class="my-5">
+        <!-- <tr class="my-5">
                 <form action="index.php?vista=cliente&id=<?php echo $array['idcliente'] ?>"
                     method="POST">
                     <td scope="row"><?php echo $array['idcliente'] ?></td>
@@ -51,8 +55,7 @@
                 </form>
             </tr>
            <?php }?> -->
-        </tbody>
+      </tbody>
     </table>
-</div>
-
+  </div>
 </div>

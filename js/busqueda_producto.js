@@ -17,16 +17,7 @@ const mostrarProducto=()=>{
         // console.log(data)
        
         $(document).ready( function () {
-            // creamos el boton
-        //     $('#cliente_romel').on('click', 'td.editor-delete', function (e) {
-        //       e.preventDefault();
-       
-        //       editor.remove( $(this).closest('tr'), {
-        //           title: 'Delete record',
-        //           message: 'Are you sure you wish to remove this record?',
-        //           buttons: 'Delete'
-        //       } );
-        //   } );
+
         // creamos la tabla
 
         

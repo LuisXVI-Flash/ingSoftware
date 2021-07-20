@@ -26,68 +26,53 @@
     ></script>
     <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./css/styles.css">
     <!-- <script src="../js/toggle.js"></script> -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="./css/styles.css">
     <script
     src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
     crossorigin="anonymous"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
     <script src="./js/busqueda_cliente.js"></script>
-    <script src="./js/busqueda_producto.js"></script>
-    <style>
-      .btn-link, .btn-link:hover, .btn-link:active, .btn-link:visited {
-       text-decoration:none;
-}
-.btn-primary , .btn-primary:active, .btn-primary:visited {
-      background:#5250F1;
-      border:none;
-}
-    </style>
   </head>
   <body>
     <?php
             if (isset($_SESSION["idcargo"])) {
               ?>
-    <nav class="navbar navbar-light" style="background-color: #003862;">
+    <nav class="navbar navbar-light" >
       <div class="container-fluid">
         <ul class="nav justify-content-start">
           <li class="nav-item">
             <a
               href="index.php"
               ><img src="./assets/teca-white.png" alt="logo-teca" width="120px" height="40px"></a>
-          </li>>
-          <li class="nav-item">
-          <button class="btn_toggle" id="toggle"><i class="fas fa-bars" style="height: 50px;"></i></button>
+          </li>
+          <li class="nav-item mx-2">
+          <button class="btn_toggle" id="toggle"><i class="fas fa-bars"></i></button>
           </li>
         </ul>
 
         <ul class="nav justify-content-end">
           <li class="nav-item">
-            <span
-              class="iconify"
-              data-inline="false"
-              data-icon="bx:bx-user"
-              style="color: #FFFF; font-size: 50px; "
-            ></span>
+            <h6 class="nav-link text-center">
+            Usuario: <?php echo $_SESSION['trabajador']?>
+            <?php echo $_SESSION["nombreCargo"]?>
+            </h6>
+          </li><li class="nav-item">
+            <div class="content__image">
+            <img src="./assets/icons/user.svg" alt="user_image">
+            </div>
           </li>
-          <li class="nav-item">
-            <p class="nav-link text-center" style="color: #FFFFFF">
-              Usuario:
-              <?php echo $_SESSION['trabajador']?><br /><?php echo $_SESSION["nombreCargo"]?>
-            </p>
-          </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <p class="nav-link"></p>
-          </li>
-          <li class="nav-item">
+          </li> -->
+          <!-- <li class="nav-item">
             <p></p>
             <a class="btn btn-light btn-sm " href="?cerrar">Cerrar Sesion</a>
-           
-          </li>
+          </li> -->
         </ul>
       </div>
     </nav>

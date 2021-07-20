@@ -2,10 +2,14 @@
 * {
   /* Custom Propertys */
   --backgroumd:rgb(100, 146, 255);
-  /* options defautl */
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  }
+
+  :root{
+    --color-primary:#008AFC;
+    --color-secondary:#003862;
   }
   
   *:focus {
@@ -15,101 +19,8 @@
   font-family: Arial;
   height: 100%;
   width: 100%;
-  overflow-x: hidden
+  /* overflow-x: hidden */
   }
-  /* .login {
-  margin: 20px auto;
-  width: 300px;
-  }
-  .login-screen {
-    box-shadow: inset 0 0 5px #C2C2C1;
-  padding: 20px;
-  border-radius: 5px
-  }
-  
-  .app-title {
-  text-align: center;
-  color: #777;
-  }
-  
-  .login-form {
-  text-align: center;
-  }
-  .control-group {
-  margin-bottom: 10px;
-  }
-  
-  input {
-  text-align: center;
-  background-color: #ECF0F1;
-  border: 2px solid transparent;
-  border-radius: 3px;
-  font-size: 16px;
-  font-weight: 200;
-  padding: 10px 0;
-  width: 250px;
-  transition: border .5s;
-  }
-  
-  input:focus {
-  border: 2px solid #91D5EF;
-  box-shadow: none;
-  }
-  
-  .btn {
-    border: 2px solid transparent;
-    background: #51AFDA;
-    color: #ffffff;
-    font-size: 16px;
-    line-height: 25px;
-    padding: 10px 0;
-    text-decoration: none;
-    text-shadow: none;
-    border-radius: 3px;
-    box-shadow: none;
-    transition: 0.25s;
-    display: block;
-    width: 250px;
-    margin: 0 auto;
-  }
-  
-  .btn:hover {
-    background-color: #91D5EF;
-  }
-  
-  .login-link {
-    font-size: 12px;
-    color: #444;
-    display: block;
-      margin-top: 12px;
-  }
-  #footer {
-    position:fixed;
-    left:0px;
-    bottom:0px;
-    height:30px;
-    width:100%;
-    background:#999;
- }
-
- #content {
-  width: 1180px;
-  min-height: 100%;
-  margin: auto;
-  position: relative;
-  padding: 20px; 
-  padding-top: 50px;
-  padding-bottom: -202px;
-  padding-right: 50px;
-}
-#footer {
-  width: 100%;
-  height: 200px;
-  background: #333;
-  border-top: 2px solid #000;
-  position: absolute;
-  bottom: 0;
-} */
 
 @import url('../css/gestionarDispositivo.css');
 @import url('../css/sidebar.css');
@@ -117,9 +28,9 @@
 .sidebar__content{
 top: 96px;
 left: 0;
-background: #FFFF;
+background: #F0F0F0;
 width: 250px;
-min-height: 100vh;
+min-height: 92.1vh;
 transform: translate(0px);
 transition: transform 0.8s ease,display 0.3s ease;
 /*border: 1px solid #51AFDA;
@@ -134,12 +45,15 @@ transition: margin 0.3s ease;
 }
 
 /* Navbar */
+
 .btn_toggle{
 background: transparent;
 outline: none;
 border: none;
 color: #fff;
+font-size: 30px;
 }
+
 
 .btn_toggle:focus{
 outline: none;
@@ -147,6 +61,36 @@ outline: none;
 
 .btn_toggle:hover{
 color: rgb(224, 224, 224);
+}
+
+.btn-link img{
+  padding-right: 10px;
+}
+
+.btn-link, .btn-link:hover, .btn-link:active, .btn-link:visited {
+  text-decoration:none;
+}
+.btn-primary{
+ background: var(--color-primary);
+ border:none;
+ border-radius: 18px;
+ padding: 8px 10px;
+}
+
+.btn-primary:active{
+  background: #003862;
+}
+
+.btn-secondary{
+  border-radius: 18px;
+ padding: 8px 10px;
+  background: var(--color-secondary);
+}
+
+.content__image{
+  background: var(--color-secondary);
+  padding: 10px;
+  border-radius: 50%;
 }
 
 /* acciones */
@@ -163,6 +107,7 @@ margin: 0;
 padding: 0;
 display: flex;
 justify-content: center;
+align-items: center;
 }
 
 .container__cliente{
@@ -174,7 +119,7 @@ align-items: center;
 }
 
 .container__dispositivo{
-width: 100vw;
+/* width: 100vw; */
 display: flex;
 justify-content: flex-start;
 flex-direction: row;
@@ -213,24 +158,6 @@ padding: 10px;
 text-align: left; 
 }
 
-/*.table__products thead tr th{
-color:#51AFDA;
- border: solid 0.5px #000; 
-}
-
-.table__products tbody tr{
-font-weight: 500;
-/* border: solid 0.5px #000; 
-}*/
-/*
-.table__products tbody tr:nth-child(2n+1){
-/* background:#3ba8db; 
-}
-
-.table__products tbody tr:nth-child(2n){
-color:#51AFDA;
-}*/
-
 .table__products tbody tr img{
 height: 150px;
 width: 100px;
@@ -249,36 +176,13 @@ justify-content: space-around;
 border: solid transparent 1px ;
 }
 
-/*.table__products tbody td button:nth-child(2n+1){
-background-color: rgb(71, 135, 255);
-}
-
-.table__products tbody td button:nth-child(2n+1):hover{
-background-color: rgb(36, 112, 253);
-}
-
-.table__products tbody td button:nth-child(2n){
-background-color: rgb(255, 57, 57);
-}
-
-.table__products tbody td button:nth-child(2n):hover{
-background-color: rgb(255, 30, 30);
-}
-
-.table__products tbody td button:hover{
-border: solid 1px rgb(141, 141, 141);
-cursor: pointer;
-color: rgb(223, 219, 219);
-}
-*/
-@media (max-width: 470px){
+/* @media (max-width: 470px){
 .table__products{
     width: 100%;
 }
-}
+} */
 
-@media only screen and (max-width: 960px),
-(min-device-width: 768px) and (max-device-width: 1024px)  {
+@media only screen and (max-width: 1024px)  {
 
 /* Force table to not be like tables anymore */
 table, thead, tbody, th, td, tr { 
@@ -426,8 +330,20 @@ justify-content: center;
 
 }
 
-/* navbar */
-/* Navbar */
+/* ===Navbar ===*/
+.navbar{
+  background: #008AFC;
+}
+.nav-item{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-item h6{
+  color: #fff;
+}
+
 .container__navbar{
 width: 100%;
 display: flex;
@@ -489,8 +405,18 @@ color: #fff;
  /* transition: background 0.3s ease, color 0.3s ease;*/
 }
 
+.card__atendido:nth-child(2){
+  background: #F9722C;
+}
+.card__atendido:nth-child(3){
+  background: #00C100;
+}
+.card__atendido:nth-child(4){
+  background: #CE426B;
+}
+
 .card__atendido:hover{
-  background: #6492FF;
+  background: #ff6464;
   color: #fff;
   cursor: pointer;
 }
@@ -503,3 +429,49 @@ color: #fff;
 .container__title h4{
   margin-left: 50px;
 }
+
+.content__title-cliente{
+  width: 80%;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  padding-left: 170px;
+  /* padding-top: 34px; */
+}
+
+/* Agregar dispositivos */
+
+.content__form{
+  width: 40%;
+  height: 500px;
+  background: #F0F0F0;
+}
+
+.container__form__dispositivo{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  }
+.container__form__dispositivo form{
+  display: flex;
+  width: 100%;
+  height: 80%;
+  flex-direction: column;
+  justify-content: space-around;
+  }
+
+  .container__form__dispositivo form input{
+    padding: 5px;
+    padding-left: 10px;
+  }
+  .container__form__dispositivo form .btn-primary{
+    margin: 0;
+  }
+
+  .content__button{
+    display: flex;
+    justify-content: space-evenly;
+  }
