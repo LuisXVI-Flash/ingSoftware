@@ -48,6 +48,22 @@ class Dispositivo extends conexion{
         }
         return $r;
 	}
+	public function getProductosActivos(){
+
+		$instancia = conexion::obtenerconexion();
+        $resultadoa = mysqli_query($instancia, "SELECT COUNT(*)  FROM producto where estado='1'");
+
+        $consultaa = mysqli_fetch_array($resultadoa);
+        return $consultaa;
+	}
+	public function getProductosInactivos(){
+
+		$instancia = conexion::obtenerconexion();
+        $resultadoa = mysqli_query($instancia, "SELECT  COUNT(*)  FROM producto where estado='0'");
+		$consultaa = mysqli_fetch_array($resultadoa);
+        
+        return $consultaa;
+	}
 	 
 	 public function findProduct($nombre){
 		$instancia = conexion::obtenerconexion();
