@@ -24,7 +24,7 @@
         name="id"
         v-model="idproducto"
         id="id"
-        v-on:keyup="comprobariddispositivo"
+        v-on:change="comprobariddispositivo"
         required
         placeholder="ID del dispositivo"
       />
@@ -35,7 +35,7 @@
         type="text"
         name="pac"
         id="pac"
-        v-on:keyup="comprobarpacdispositivo"
+        v-on:change="comprobarpacdispositivo"
         v-model="pacproducto"
         required
         placeholder="Codigo PAC del dispositivo"
@@ -53,6 +53,7 @@
           type="text"
           name="apellidos"
           v-model="apellidos"
+          v-on:change="validar_ape"
           id="apellidos"
           placeholder="arias"
           required
@@ -64,6 +65,7 @@
           name="nombres"
           id="nombres"
           v-model="nombres"
+          v-on:change="validar_name"
           required
           placeholder="pedro"
         />
@@ -75,7 +77,7 @@
           id="dni"
           v-model="dni"
           required
-          v-on:keyup="validar_dni"
+          v-on:change="validar_dni"
           placeholder="23472398"
           maxlength="8"
         />
@@ -88,7 +90,7 @@
           name="correo"
           v-model="correo"
           id="correo"
-          v-on:keyup="validar_email"
+          v-on:change="validar_email"
           placeholder="pedro@gmail.com"
           required
         />
@@ -99,7 +101,7 @@
           name="telefono"
           id="telefono"
           v-model="telefono"
-          v-on:keyup="validar_telefono"
+          v-on:change="validar_telefono"
           max="9"
           placeholder="994538903"
           required

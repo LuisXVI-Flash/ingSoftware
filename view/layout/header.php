@@ -41,8 +41,8 @@
   </head>
   <body>
     <?php
-            if (isset($_SESSION["idcargo"])) {
-              ?>
+if (isset($_SESSION["idcargo"])) {
+    ?>
     <nav class="navbar navbar-light" >
       <div class="container-fluid">
         <ul class="nav justify-content-start">
@@ -59,12 +59,15 @@
         <ul class="nav justify-content-end">
           <li class="nav-item">
             <h6 class="nav-link text-center">
-            Usuario: <?php echo $_SESSION['trabajador']?>
-            <?php echo $_SESSION["nombreCargo"]?>
+            Usuario: <?php echo $_SESSION['trabajador'] ?>
+            <?php echo $_SESSION["nombreCargo"] ?>
             </h6>
           </li><li class="nav-item">
             <div class="content__image">
-            <img src="./assets/icons/user.svg" alt="user_image">
+              <a href="index.php?cerrar">
+              <img src="./assets/icons/user.svg" alt="user_image">
+            </a>
+
             </div>
           </li>
           <!-- <li class="nav-item">
@@ -82,5 +85,5 @@
         <div class="container-fluid">
           <nav class="nav flex-column"> -->
             <?php
-            }
-            ?>
+}
+?>
