@@ -5,7 +5,7 @@
         if ($_SESSION['idcargo'] == 1) {
         ?>
         <br><br>  <a class="nav-link disabled" href="#"><h6>GENERAL</h6></a>
-            <a href="index.php"><button class="btn btn-link" name="listar" type="submit"><h6>Dashboard</h6></button></a>
+            <a href="index.php"><button class="btn btn-link btn__sidebar" name="listar" type="submit"><h6>Dashboard</h6></button></a>
         <?php } ?>
         <?php
         if ($_SESSION['idcargo'] == 1 || $_SESSION['idcargo'] == 2 || $_SESSION['idcargo'] == 3) {
@@ -69,12 +69,12 @@
                     Usuarios
                 </h6>
             </button>
-                <button class="btn btn-link btn__sidebar" name="Listar" id="Listar">
+                <!-- <button class="btn btn-link btn__sidebar" name="Listar" id="Listar">
                 <img src="./assets/icons/eos-icons_configuration-file.svg" alt="dispositivo">
                 <h6>
                     Roles
                 </h6>
-                </button>
+                </button> -->
      </form>
 
  </form>
