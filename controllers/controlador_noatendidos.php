@@ -9,6 +9,7 @@ if (isset($_GET["operacion"]) and isset($_GET["id"])) {
         $estado = $_GET['esta'];
         $d = new Dispositivo;
         $d->cambiarEstado($id, $estado);
+        require_once("./models/mail.php");
         // header("Location: index.php?vista=atendidos");
     }
 }
