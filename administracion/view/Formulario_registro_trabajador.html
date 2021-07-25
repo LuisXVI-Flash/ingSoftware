@@ -1,39 +1,36 @@
-<div class="contenedor" id="contenedor" >
-<button onclick="cambiar(1)">Agregar Usuario</button>
-<button onclick="cambiar(2)">Cambiar Contraseña</button>
+<div class="contenedor" id="contenedor">
+  <button onclick="cambiar(1)" class="btn btn-primary">Agregar Usuario</button>
+  <br>
+  <button onclick="cambiar(2)" class="btn btn-primary">Cambiar Contraseña</button>
 </div>
 
-
-
 <style>
-#contenedor{
+  #contenedor {
     width: 100%;
-       display: flex;
-       flex-direction: column;
-       justify-content: center;
-       text-align: center; 
-       align-items: center;
-}
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+  }
 </style>
 <script>
-   
-    function cambiar(valor){
-        if(valor==1){
-           
-            document.getElementById("contenedor").innerHTML=`
-            <div class="card text-dark bg-light mb-3" style="width: 40rem;">
+  function cambiar(valor) {
+    if (valor == 1) {
+      document.getElementById("contenedor").innerHTML = `
+            <div class="card text-dark bg-light mb-3" ">
                                     <div class="card-header fw-bold text-center">Registrar Usuario</div>
                                     <form action="?vista=usuarios" method="POST" class="w-100">
 
                                         <div class="card-body m-auto" style="width: 80%;">
                                             <div class="form-row d-flex mt-3">
-                                                <span class="col-6 bold">Cargo:</span>
-                                                <div class="col-6 ml-auto">
+                                                <span class="col-2 bold">Cargo:</span>
+                                                <div class="col-10 ml-auto">
                                                     <input type="radio" id="check1" name="cargo" value="1" checked>
                                                     <label for="check1">Administrador de datos</label>
                                                     <br>
                                                     <input type="radio" id="check2" name="cargo" value="2">
-                                                    <label for="check2">Back Auditor</label>
+                                                    <label for="check2">           Back Auditor</label>
                                                     <br>
                                                     <input type="radio" id="check3" name="cargo" value="3">
                                                     <label for="check3">Administrador del Sistema</label>
@@ -75,12 +72,11 @@
                                         </div><br>
                                     </form>
                                 </div>
-            `
-        }
-        if(valor==2){
-            
-            document.getElementById("contenedor").innerHTML=` 
-            <div class="card text-dark bg-light mb-3" style="width: 40rem;">
+            `;
+    }
+    if (valor == 2) {
+      document.getElementById("contenedor").innerHTML = ` 
+            <div class="card text-dark bg-light mb-3" ">
                                     <div class="card-header fw-bold text-center">Verificar Usuario</div>
 
 
@@ -100,12 +96,15 @@
                                         </div>
                                     </form>
                                 </div>
+                                </div>
             `;
-        }
-        if(valor==3){
-            document.getElementById("contenedor").innerHTML=`<button onclick="cambiar(1)">Agregar Usuario</button>
-<button onclick="cambiar(2)">Cambiar Contraseña</button>`;
-        }
-        
     }
+    if (valor == 3) {
+      document.getElementById(
+        "contenedor"
+      ).innerHTML = `<button onclick="cambiar(1)" class="btn btn-primary">Agregar Usuario</button>
+  <br>
+  <button onclick="cambiar(2)" class="btn btn-primary">Cambiar Contraseña</button>`;
+    }
+  }
 </script>
