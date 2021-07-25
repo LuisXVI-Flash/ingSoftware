@@ -15,7 +15,7 @@
         }
         public function registrarTrabajador($data) 
         {
-            //include_once("conexion.php");
+          
           $nombre = $data['nombre'];
           $apellido =$data['apellido'];
           $idcargo =$data['idcargo'];

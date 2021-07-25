@@ -75,8 +75,6 @@ if (isset($_POST["login"]) and isset($_POST["password"])) {
         $_SESSION["estado"] = true;
         $_SESSION["mensaje"] = "Completa los campos";
         header('Location: ' . $_SERVER['HTTP_REFERER']);
-        // include_once("../shared/formMensajeSistema.php");
-        // (new formMensajeSistema())->accesso_denegado();
         exit();
     }
 } else if (isset($_POST["contrasenia_usuario"])) {

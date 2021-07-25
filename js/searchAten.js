@@ -12,8 +12,6 @@ window.addEventListener("load", () => {
     fetch("./controllers/controlador_atendido.php")
     .then((res) => res.json())
     .then((data) => {
-      // console.log(data);
-      // console.log(JSON.parse(data))
       if (data.error) {
         mensaje.innerHTML = `
             <div class="alert alert-danger" role="alert">
@@ -21,9 +19,7 @@ window.addEventListener("load", () => {
             </div>`;
         alerta.innerHTML=``;
       } else {
-        // const datos=JSON.stringify(data);
         getUltimosAtendidos(data);
-        // filtrarAtendidos(data);
       $(document).ready( function () {
     // creamos la tabla
           var table=$('#listingTable').DataTable({
@@ -81,34 +77,13 @@ window.addEventListener("load", () => {
     });
   }
   mostrarAtendido()
-  // buscador
-
-  // filtro atendidos y no atendidos
-  // const filtrarAtendidos=(data)=>{
-  //   selectAtendido.addEventListener('change',()=>{
-  //     const atendidos=data.filter(dat=>dat.estado=="1");
-  //     const noatendidos=data.filter(dat=>dat.estado=="0");
-  //     if(selectAtendido.value=="1"){
-  //       console.log(atendidos)
-  //       return atendidos
-  //     }else if(selectAtendido.value=="0"){
-  //       console.log(noatendidos)
-  //       return noatendidos
-  //     }else if(selectAtendido.value=="filtrar"){
-  //       console.log(data)
-  //       return data
-  //     }
-  //   })
-  // }
 
   //filtrar ultimos atendidos
   const containerCard=document.querySelector('.container__atendidos__cards');
   const template2=document.getElementById('card').content;
   const fragment2=document.createDocumentFragment();
   const getUltimosAtendidos=(data)=>{
-    // const cards=document.querySelectorAll('.card__atendido');
     const atendidos=data.filter(dat=>dat.estado=="1");
-    // const ultimaFecha=atendidos.filter(dat=>mayorfecha(dat.fecha));
     const ordenFechas=atendidos.sort((a,b)=>{
       if(a.fecha>b.fecha){
         return 1;
@@ -118,10 +93,7 @@ window.addEventListener("load", () => {
       return 0;
     });
     const ultimosTres=ordenFechas.slice(ordenFechas.length-3);
-    // console.log(ultimosTres)
-    // console.log(template2)
     ultimosTres.forEach(el => {
-      // console.log(el)
       template2.querySelector('.card__atendido h3').textContent=el.nombres;
       template2.querySelector('.card__atendido h4').textContent=el.fecha;
       const clone=template2.cloneNode(true);
@@ -135,8 +107,6 @@ window.addEventListener("load", () => {
     fetch("./controllers/controlador_atendido.php")
     .then((res) => res.json())
     .then((data) => {
-      // console.log(data);
-      // console.log(JSON.parse(data))
       if (data.error) {
         mensaje.innerHTML = `
             <div class="alert alert-danger" role="alert">
@@ -144,8 +114,6 @@ window.addEventListener("load", () => {
             </div>`;
         alerta.innerHTML=``;
       } else {
-        // const datos=JSON.stringify(data);
-        // getUltimosAtendidos(data);
         const atendidos=data.filter(dat=>dat.estado=="1");
       $(document).ready( function () {
     // creamos la tabla
@@ -191,7 +159,6 @@ window.addEventListener("load", () => {
                     return `<a class="btn btn-primary" href="index.php?vista=pedidos&id=${data.idproducto}&esta=${estado}&operacion=estado">No atendido</a>`;
                   }
                 },
-                // orderable: false
               },
             ],
             "language": {
@@ -212,8 +179,6 @@ window.addEventListener("load", () => {
     fetch("./controllers/controlador_atendido.php")
     .then((res) => res.json())
     .then((data) => {
-      // console.log(data);
-      // console.log(JSON.parse(data))
       if (data.error) {
         mensaje.innerHTML = `
             <div class="alert alert-danger" role="alert">
@@ -221,8 +186,6 @@ window.addEventListener("load", () => {
             </div>`;
         alerta.innerHTML=``;
       } else {
-        // const datos=JSON.stringify(data);
-        // getUltimosAtendidos(data);
         const noatendidos=data.filter(dat=>dat.estado=="0");
       $(document).ready( function () {
     // creamos la tabla
@@ -268,7 +231,6 @@ window.addEventListener("load", () => {
                     return `<a class="btn btn-primary" href="index.php?vista=atendidos2&id=${data.idproducto}&esta=${estado}&operacion=estado">No atendido</a>`;
                   }
                 },
-                // orderable: false
               },
             ],
             "language": {
@@ -281,7 +243,4 @@ window.addEventListener("load", () => {
     });
   }
   NoAtendidos()
-
-
-
 })

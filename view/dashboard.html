@@ -33,11 +33,6 @@
   fetch("./controllers/controlador_dashboard.php",{method: "POST"})
   .then(function(res){ return res.json(); })
 .then(function(data){ alert( JSON.stringify( data ) ) })
-
-
-
-
-
   var ctx = document.getElementById("myChart").getContext("2d");
   var myChart = new Chart(ctx, {
     type: "bar",
@@ -119,18 +114,8 @@
     width: 100%;
     display: grid;
     grid-template-columns: repeat(4,1fr);
-    /* grid-template-columns: repeat(fill-content,minmax(400px,1fr)); */
-    /* grid-template-rows: repeat(4,1fr); */
     gap: 20px;
   }
-  /* .container_dashboard {
-    display: flex;
-    flex-direction: row;
-    width:100% ;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-  } */
   .container_inicio{
       display: flex;
       flex-direction: row;
@@ -151,22 +136,18 @@
   .ventas {
     display: flex;
     flex-direction: column;
-    /* margin-left: 2%; */
     border-radius: 1.5rem;
     box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.246);
     justify-content: center;
     text-align: center;
     align-items: center;
     display: flex;
-    /* width: 20%; */
   }
 
   .grafico,.grafico2{
-      /* margin-left: 2rem; */
     border-radius: 1.5rem;
     box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.246);
     display: flex;
-    /* width: 40%; */
   }
 
   .grafico{
@@ -179,11 +160,9 @@
   @media screen and (max-width:850px) {
     .container_dashboard {
     grid-template-columns: repeat(3,1fr);
-    /* grid-template-rows: repeat(4,1fr); */
   }
   .ventas:nth-child(2){
     grid-row: 2/3;
-    /* grid-column: ; */
   }
 
   .grafico{
@@ -198,7 +177,6 @@
   @media screen and (max-width:750px) {
     .container_dashboard {
     grid-template-columns: repeat(3,1fr);
-    /* grid-template-rows: repeat(4,1fr); */
   }
     .ventas:nth-child(1){
       grid-row: 1/2;
@@ -217,7 +195,6 @@
   @media screen and (max-width:550px) {
     .container_dashboard {
     grid-template-columns: repeat(2,1fr);
-    /* grid-template-rows: repeat(4,1fr); */
   }
   .grafico{
     grid-row: 1/2;

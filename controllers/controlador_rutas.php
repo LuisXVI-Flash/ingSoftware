@@ -17,7 +17,6 @@ if (isset($_SESSION["idcargo"])) {
             require_once "./controllers/controlador_dispositivo.php";
         } elseif ($_GET["vista"] == "atendidos") {
             require_once "./view/vista_principal.html";
-            // require_once("./view/Listar_atendidos.html");
             require_once "./controllers//controlador_estado.php";
         } elseif ($_GET["vista"] == "pedidos") {
             require_once "./view/vista_principal.html";
@@ -39,3 +38,4 @@ if (isset($_SESSION["idcargo"])) {
 } else {
     require_once "./controllers/controller_Trabajador.php";
 }
+?>

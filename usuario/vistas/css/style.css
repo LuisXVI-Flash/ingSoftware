@@ -8,8 +8,6 @@
 body {
   margin: 0;
   padding: 0;
-  /* background-image: url("https://i.pinimg.com/originals/3b/94/a8/3b94a83a3c20859489c8d6768310bd43.jpg"); */
-  /* font-family: "Montserrat", Georgia, serif; */
   font: normal normal normal 18px/22px avenir-lt-w01_35-light1475496,sans-serif;
   line-height: 1.6;
 }
@@ -66,7 +64,6 @@ h3,
 h4,
 h5,
 h6 {
-  /* font-family: "Montserrat", Helvetica, sans-serif; */
   font: normal normal normal 18px/22px avenir-lt-w01_35-light1475496,sans-serif;
   font-weight: 700;
 }
@@ -119,14 +116,12 @@ li {
 .botones{
   display:flex;
   justify-content: center;
-  /* width: 100px; */
   height: 40px;
   text-align: center;
   flex-direction: column;
   background-color:#008AFC ;
   color: var(--color-texto-principal);
   border-radius: 2rem;
-  /* border: 1px solid var(--color-principal); */
   padding: 0 20px;
 }
 .botones:active{
@@ -168,11 +163,9 @@ li {
 }
 #progreso {
   width: 100%;
-  /* height: 80%; */
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  /* justify-content: space-around; */
   align-items: center;
   position: relative;
   margin-top: 60px;
@@ -185,13 +178,8 @@ li {
   margin-bottom: 50px;
 }
 #app {
-  /* margin-top: 10vh;
-   */
   display: flex;
   justify-content: center;
-  /* align-items: center; */
-  /* min-height: 60vh;
-  width: 100%; */
   height: 80vh;
 }
 
@@ -212,14 +200,14 @@ li {
 
 .btn__close{
   position: absolute;
-            cursor: pointer;
-            top: 15px;
-            right: 20px;
-            background-color: transparent;
-            color: rgb(0, 0, 0);
-            border-radius: 1em;
-            border: none;
-            font-size: 20px;
+  cursor: pointer;
+  top: 15px;
+  right: 20px;
+  background-color: transparent;
+  color: rgb(0, 0, 0);
+  border-radius: 1em;
+  border: none;
+  font-size: 20px;
 }
 
 .btn__close:hover{
@@ -252,21 +240,10 @@ li {
   }
 }
 
-/* class call actions */
-
-/* .correct{
-  border:2px solid rgb(21, 173, 1);
-}
-
-.warning{
-  border:2px solid rgb(255, 5, 5);
-} */
 .correct__message{
   color:green;
-  /* font-weight: 600; */
 }
 
 .warning__message{
   color: red;
-  /* font-weight: 300; */
 }

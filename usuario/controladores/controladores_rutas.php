@@ -1,7 +1,3 @@
-<!-- elseif(isset($_GET["solicitar"])) {
-    require_once("./controllers/controlador_activacion.php");
-} -->
-
 <?php
 $ruta_actual="TECA";
 
@@ -17,15 +13,6 @@ if(isset($_GET["vista"])){
     } else{
         require_once("./vistas/Principal.html");
     }
-
-
-
-
-
-
-
-
-
 }else{
     require_once("./vistas/Principal.html");
 }

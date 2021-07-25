@@ -20,3 +20,5 @@ if (isset($_POST['uwu'])) {
     $resultadoa = mysqli_query($instancia, "SELECT COUNT(*) FROM `solicitud` WHERE fecha like '{$fecha}'");
     $solhoy = mysqli_fetch_array($resultadoa);
 }
+
+?>

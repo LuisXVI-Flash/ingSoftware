@@ -2,7 +2,6 @@
 
 require_once "../models/conexion.php";
 require_once "../models/Dispositivo.php";
-//require_once("../view/vista_principal.html");
 $method = $_SERVER['REQUEST_METHOD'];
 
 if ($method == "GET") {
@@ -22,3 +21,5 @@ if ($method == "GET") {
         echo $json;
     }
 }
+
+?>

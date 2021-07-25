@@ -2,7 +2,6 @@
 require_once "../modelos/conexion.php";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // $array = null;
     $data = json_decode(file_get_contents("php://input"), true);
 
     if (isset($data)) {
@@ -48,9 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $conex = new conexion;
             $conexion = $conex::obtenerconexion();
             $sql = "SELECT * from producto WHERE id = '{$valor1}' AND pac='{$valor2}' AND estado='0'";
-            //  echo $sql;
             $array = mysqli_query($conexion, $sql);
-            // var_dump($array);
             $resultado = mysqli_fetch_array($array);
 
             if ($resultado) {
@@ -69,7 +66,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $sql = "SELECT * from producto WHERE id = '{$valor}' ";
 
                 $array = mysqli_query($conexion, $sql);
-                // var_dump($array);
                 $resultado = mysqli_fetch_array($array);
 
                 if ($resultado) {

@@ -19,8 +19,6 @@ function buscar_datos(verificador, consulta){
         console.log(verificador);
     })
 }
-
-
 $(document).on('keyup','#buscar', function(){
     var valor = $(this).val();
     if(valor != ""){

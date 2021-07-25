@@ -35,39 +35,9 @@ new Vue({
             }else{
                 document.getElementById("id").setAttribute("style","border:2px solid red");
             }
-            // fetch(url, {
-            //     body: JSON.stringify(peticion),
-            //     method: "POST",
-            //     headers: {
-            //       "Content-Type": "application/json",
-            //     },
-            //   })
-            //     .then((res) => res.json())
-            //     .then((data) =>{
-            //         if(data=="1"){
-            //             document.getElementById("id").setAttribute("style","border:2px solid green");
-            //             document.getElementById("messageid").innerHTML=`<h4>id encontrado</h4>`;
-            //             document.getElementById("messageid").classList.add('correct__message')
-            //             document.getElementById("messageid").classList.remove('warning__message')
-            //             // document.getElementById("menid").innerHTML="";
-            //         }else{
-            //             document.getElementById("id").setAttribute("style","border:2px solid red");
-            //             document.getElementById("messageid").innerHTML=`<h4>id no encontrado</h4>`;
-            //             document.getElementById("messageid").classList.remove('correct__message')
-            //             document.getElementById("messageid").classList.add('warning__message')
-            //             // alert("Error ingrese un id valido")
-            //             // document.getElementById("menid").innerHTML="Error ingrese un valor valido";
-            //         }
-                    
-            //     })
-            //     .catch(function(error) {
-            //         console.log('Hubo un problema con la petición ' + error.message);
-            //       });
             }
         },
         comprobarpacdispositivo(e) {
-            // console.log('hola')
-            // console.log(e.target.value)
             var url = './controladores/api_dispositivo.php';
             var peticion = {
                 "pacproducto": this.pacproducto,
@@ -79,34 +49,6 @@ new Vue({
                 }else{
                     document.getElementById("pac").setAttribute("style","border:2px solid red");
                 }
-            // fetch(url, {
-            //     body: JSON.stringify(peticion),
-            //     method: "POST",
-            //     headers: {
-            //       "Content-Type": "application/json",
-            //     },
-            //   })
-            //     .then((res) => res.json())
-            //     .then((data) =>{
-            //         if(data=="1"){
-            //             document.getElementById("pac").setAttribute("style","border:2px solid green");
-            //             document.getElementById("pac").innerHTML=`pac encontrado`;
-            //             document.getElementById("messagepac").innerHTML=`<h4>pac encontrado</h4>`;
-            //             document.getElementById("messagepac").classList.add('correct__message')
-            //             document.getElementById("messagepac").classList.remove('warning__message')
-            //         }else{
-            //             document.getElementById("pac").setAttribute("style","border:2px solid red");
-            //             document.getElementById("messagepac").innerHTML=`<h4>pac no encontrado</h4>`;
-            //             document.getElementById("messagepac").classList.remove('correct__message')
-            //             document.getElementById("messagepac").classList.add('warning__message')
-            //             // document.getElementById("menpac").innerHTML="Error ingrese un valor valido";
-            //             // alert("Error ingrese un pac valido");
-            //         }
-                    
-            //     })
-            //     .catch(function(error) {
-            //         console.log('Hubo un problema con la petición' + error.message);
-            //       });
             }
         },
         siguiente(){
@@ -117,7 +59,6 @@ new Vue({
                 "pacproducto": this.pacproducto,
                 "idproducto": this.idproducto
             };
-            // console.log(JSON.stringify(peticion));
             if(this.pacproducto!=null && this.pacproducto.trim()!="" && this.idproducto!=null && this.idproducto.trim()!=""){
             fetch(url, {
                 body: JSON.stringify(peticion),
@@ -156,7 +97,6 @@ new Vue({
                         title: 'Oops...',
                         text: 'Rellene todos los campos',
                       })
-                    // alert("ingrese datos");
                 }
             }else{
                 window.location.replace("index.php");
@@ -253,7 +193,6 @@ new Vue({
                 .then((res) => res.json())
                 .then((data) =>{
                     if(data=="1"){
-                        // this.mensaje="registrado";
                         this.etapa=3;
                         this.mensaje="Volver al inicio";
                         
@@ -264,7 +203,6 @@ new Vue({
                 })
                 .catch(function(error) {
                     console.log('Hubo un problema con la petición ' + error.message);
-                    // alert("error al registrar su solicitud");
                     Swal.fire({
                         icon: 'error',
                         title: 'Oops...',
@@ -280,12 +218,6 @@ new Vue({
                       })
                 }
                 }else{
-                    // alert("ingrese primero los datos");
-                    // document.getElementById("apellidos").setAttribute("style","border:2px solid red");
-                    // document.getElementById("nombres").setAttribute("style","border:2px solid red");
-                    // document.getElementById("dni").setAttribute("style","border:2px solid red");
-                    // document.getElementById("correo").setAttribute("style","border:2px solid red");
-                    // document.getElementById("telefono").setAttribute("style","border:2px solid red");
                     Swal.fire({
                         icon: 'error',
                         title: 'Oops...',

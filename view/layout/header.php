@@ -11,7 +11,6 @@
       crossorigin="anonymous"
     />
     <title>TECA PERU S.A.C</title>
-    <!-- <script src='../js/bootstrap.min.js'></script> -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
@@ -24,7 +23,6 @@
     ></script>
     <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
-    <!-- <script src="../js/toggle.js"></script> -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css">
@@ -68,20 +66,10 @@ if (isset($_SESSION["idcargo"])) {
 
             </div>
           </li>
-          <!-- <li class="nav-item">
-            <p class="nav-link"></p>
-          </li> -->
-          <!-- <li class="nav-item">
-            <p></p>
-            <a class="btn btn-light btn-sm " href="?cerrar">Cerrar Sesion</a>
-          </li> -->
         </ul>
       </div>
     </nav>
     <div class="container__dispositivo">
-      <!-- <div class="col-lg-3">
-        <div class="container-fluid">
-          <nav class="nav flex-column"> -->
-            <?php
+<?php
 }
 ?>

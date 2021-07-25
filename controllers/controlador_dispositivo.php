@@ -16,17 +16,7 @@ if (isset($_POST["Guardar"])) {
         $dispositivo->agregar($id, $pack, $valor);
         header("Location: index.php?vista=dispositivo");
     }
-    /*
-if(isset($_POST["id"]) && isset($_POST["pac"])){
-$valor=0;
-if(isset($_POST["estado"]) && $_POST["estado"]=="on"){
-$valor=1;
-}
-include_once("../models/Dispositivo.php");
-$dis=new Dispositivo($_POST['id'],$_POST["pac"],$valor);
-$dis->agregar();
-header("Location: ../view/listar_dispositivo.php");
-}*/
+
 } elseif (isset($_GET["operacion"]) and isset($_GET["id"])) {
 
     if ($_GET["operacion"] == "editar") {
@@ -49,14 +39,15 @@ header("Location: ../view/listar_dispositivo.php");
     $id = $_POST['idproducto'];
     $pac = $_POST['pac'];
     $estado = $_POST['estado'];
-    //deberían ir restricciones???
 
     $obj_act = new Dispositivo;
     $obj_act->editardispositivo($idproducto, $id, $pac, $estado);
-    // header("Location: index.php?vista=dispositivo");
     require_once "./view/listar_dispositivo.html";
+
 } elseif (isset($_POST["btnAgregarDispositivo"])) {
     require_once "./view/dispositivo_agregar.html";
 } else {
     require_once "./view/listar_dispositivo.html";
 }
+
+?>

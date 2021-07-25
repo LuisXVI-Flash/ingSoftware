@@ -1,7 +1,5 @@
 <?php
 require_once "./models/Dispositivo.php";
-// require_once("./view/Listar_atendidos.html");
-// require_once("./view/Listar_atendidos2.html");
 require_once "./view/Lista_pedidos.html";
 if (isset($_GET["operacion"]) and isset($_GET["id"])) {
     if ($_GET["operacion"] == "estado") {
@@ -10,6 +8,6 @@ if (isset($_GET["operacion"]) and isset($_GET["id"])) {
         $d = new Dispositivo;
         $d->cambiarEstado($id, $estado);
         require_once("./models/mail.php");
-        // header("Location: index.php?vista=atendidos");
     }
 }
+?>

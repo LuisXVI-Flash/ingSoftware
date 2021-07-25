@@ -45,63 +45,22 @@ if (isset($_POST["btngestionarr"]) or isset($_POST["verificar_usuario"]) or isse
     $dni = $_POST['dni'];
     $celular = $_POST['celular'];
 
-    //deberían ir restricciones???
-
     $obj_act = new Cliente;
     $obj_act->editarcliente($a, $nombres, $apellidos, $correo, $dni, $celular);
-    ?>
+?>
 
-         <script type="text/javascript">
-             alert("Cliente modificado exitosamente");
-         </script>
+    <script type="text/javascript">
+        alert("Cliente modificado exitosamente");
+    </script>
 
-     <?php
-// header("Location: index.php?vista=cliente");
+<?php
+
     $array = listar_cliente();
-
     require_once "./view/Formulario_listar_cliente.html";
 
 } else {
     $array = listar_cliente();
-
     require_once "./view/Formulario_listar_cliente.html";
 }
-
-//operaciones
-
-?>
-
-
-
- <?php
-
-// }else if(isset($_POST['test'])){
-//     $a = $_POST['idcliente'];
-//     $nombres = $_POST['nombres'];
-//     $apellidos = $_POST['apellidos'];
-//     $correo = $_POST['correo'];
-//     $dni = $_POST['dni'];
-//     $celular = $_POST['celular'];
-
-//     //deberían ir restricciones???
-
-//     $obj_act = new Cliente;
-//     $obj_act->editarcliente($a,$nombres,$apellidos,$correo,$dni,$celular);
-//     ?>
-
-
-
- <?php
-//     include_once("./view/Formulario_listar_cliente.html");
-//     $cliente = new Cliente;
-//     $array= $cliente->listar_cliente();
-
-// }else if($_GET['value']=='Regresar'){
-//     include_once("./view/Formulario_listar_cliente.html");
-
-//     $cliente = new Cliente;
-//     $array= $cliente->listar_cliente();
-
-// }
 
 ?>

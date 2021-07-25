@@ -8,9 +8,5 @@ function abrir_sesion(){
 function cerrar_sesion(){
    session_destroy();
 }
-// if(isset($_SESSION["idcargo"])){
-//     session_start();
-// }
-
 
 ?>

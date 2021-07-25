@@ -29,53 +29,49 @@ $mail = new PHPMailer(true);
       $mail->addAddress($correo);
       $mail->isHTML(true);
       $mail->Subject='TECA-Solicitud de activacion';
-      $mail->Body ='
+      $mail->Body = '
       
       <html>
-      <body>
-        <h1 align="center" style="background-color:rgba(3,190,237,255);front-size: 30px;">TECA PERU</h1>
-      </body>
+        <body>
+            <h1 align="center" style="background-color:rgba(3,190,237,255);front-size: 30px;">TECA PERU</h1>
+        </body>
 
-      <table width="600" align="center" cellpadding="0" cellspacing="0" border="0">
-        <tr>
-            <td>               
-                <table class="content" align="center" cellpadding="0" cellspacing="0" border="0">
-                    <tr>
-                        <td>  <h1>                      
-                        SU EQUIPO HA SIDO ATENDIDO!
-                        </td></h1>
-                        
-                    </tr>
+        <table width="600" align="center" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+                <td>               
+                    <table class="content" align="center" cellpadding="0" cellspacing="0" border="0">
+                        <tr>
+                            <td> <h1>                      
+                            SU EQUIPO HA SIDO ATENDIDO!
+                            </td></h1>
+                            
+                        </tr>
 
-                    <tr>
-                        <td><h2>
-                        PAC: '.$pac.'
-                        </td></h2>
-                        
-                    </tr>
+                        <tr>
+                            <td><h2>
+                            PAC: ' . $pac . '
+                            </td></h2>
+                            
+                        </tr>
 
-                    <tr>
-                        <td><h2>
-                        ID: '.$idpac.'
-                        </td></h2>
-                        
-                    </tr>       
+                        <tr>
+                            <td><h2>
+                            ID: ' . $idpac . '
+                            </td></h2>
+                            
+                        </tr>       
 
-                </table>               
-            </td>
-        </tr>
-    </table>
-
-</html>
-
-      
-      ';
+                    </table>               
+                </td>
+            </tr>
+        </table>
+    </html>';
 
       $mail->send();
-     // echo 'El mensaje se envio correctamente';
+     //El mensaje se envio correctamente';
       
     }catch(Exception $e){
-       // echo 'Hubo un error al enviar el mensaje: ',$mail->ErrorInfo;
+       // Hubo un error al enviar el mensaje: ',$mail->ErrorInfo;
     }
     
     

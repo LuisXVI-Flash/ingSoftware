@@ -7,7 +7,6 @@
             $conexion = $this -> obtenerconexion();
             $resultado = $conexion -> query($consulta);
             $conexion -> close();
-            //return $resultado -> fetch_all();
         }
 
         public function getcliente(){

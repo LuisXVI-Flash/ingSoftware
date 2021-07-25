@@ -1,5 +1,4 @@
 <?php
-// require_once('conexion.php');
 require_once "../models/conexion.php";
 require_once "../models/Atendido.php";
 $method = $_SERVER['REQUEST_METHOD'];
@@ -32,6 +31,4 @@ if ($method == "POST") {
 
 }
 
-// cambiar el estado de atendido a no atendido
-
-// metodo para traer los ultimos atendidos
+?>

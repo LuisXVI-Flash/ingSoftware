@@ -32,13 +32,6 @@ class Atendidos extends conexion{
 		return $r;
 	  }
 
-
-    // cambiar el estado de atendido a no atendido
-
-
-
-	// metodo para traer los ultimos atendidos
-
 }
 
 ?>
