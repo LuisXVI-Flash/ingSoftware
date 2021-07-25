@@ -5,7 +5,6 @@ require_once("./vistas/layout/header.html");
 if(isset($_GET["vista"])){
     if($_GET["vista"]=="activacion"){
         $ruta_actual="Activacion";
-        require_once("./modelos/cliente.php");
         require_once("./vistas/solicitar_activacion.html");
 
     }elseif($_GET["vista"]=="contacto"){

@@ -52,7 +52,7 @@ if (isset($_POST["login"]) and isset($_POST["password"])) {
     $email = (isset($_POST["email"]) && !empty(trim($_POST["email"]))) ? $_POST["email"] : null;
 
     if (isset($cargo) && isset($nombre) && isset($apellido) && isset($contrasenia_1) && isset($contrasenia_2) && isset($user_nick) && isset($email)) {
-
+        
         if ($contrasenia_1 !== $contrasenia_2) { // Si la contraseña no es igual. retonamos mensaje
             session_start();
             $_SESSION["mensaje"] = "La contraseña es incorrecta, por favor verifique";

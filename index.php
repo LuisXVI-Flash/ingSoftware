@@ -1,3 +1,5 @@
 <?php
-	require_once("./controllers/controlador_rutas.php");
+require_once("./controladores/controladores_rutas.php");
+
+
 ?>
