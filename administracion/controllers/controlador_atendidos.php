@@ -1,6 +1,8 @@
 <?php
 require_once "./models/Dispositivo.php";
 require_once "./view/Lista_atendidos2.html";
+
+
 if (isset($_GET["operacion"]) and isset($_GET["id"])) {
     if ($_GET["operacion"] == "estado") {
         $id = $_GET['id'];

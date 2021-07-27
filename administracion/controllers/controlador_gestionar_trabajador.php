@@ -27,7 +27,7 @@ if (isset($_POST["guardar_usuario"])) {
             "usuario" => $user_nick,
             "email" => $email,
         ];
-        require_once "./models/trabajador.php";
+        require_once "./models/Trabajador.php";
         $trabajador= new Trabajador;
         $result = $trabajador->registrarTrabajador($data);
 
@@ -69,7 +69,7 @@ if (isset($_POST["contrasenia_usuario"])) {
     exit;
 }
 if(isset($_POST["usuario"])){
-    require_once "./models/trabajador.php";
+    require_once "./models/Trabajador.php";
     $trabajador=new Trabajador;
     
     $json=$trabajador->verificar_usuario(["usuario"=>$_POST["usuario"]]);
