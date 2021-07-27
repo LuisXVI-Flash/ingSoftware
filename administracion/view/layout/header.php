@@ -72,4 +72,15 @@ if (isset($_SESSION["idcargo"])) {
     <div class="container__dispositivo">
 <?php
 }
+if(isset($_SESSION['mensaje'])){
+
+?>
+<div class="mascara">
+  <div class="mensaje"><?php echo $_SESSION['mensaje']?> </div>
+</div>
+
+
+
+<?php
+}
 ?>
