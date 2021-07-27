@@ -21,7 +21,7 @@ if (isset($_POST["btngestionarr"]) or isset($_POST["verificar_usuario"]) or isse
 
         $_SESSION["estado"] = true;
         $_SESSION["mensaje"] = "Cliente agregado correctamente";
-        header("Location: index.php?vista=cliente");
+        // header("Location: index.php?vista=cliente");
     }
 } else if (isset($_POST['Editar'])) {
     $id = $_GET['id'];

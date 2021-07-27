@@ -14,7 +14,7 @@ if (isset($_POST["Guardar"])) {
 
         $dispositivo = new Dispositivo();
         $dispositivo->agregar($id, $pack, $valor);
-        header("Location: index.php?vista=dispositivo");
+        // header("Location: index.php?vista=dispositivo");
     }
 
 } elseif (isset($_GET["operacion"]) and isset($_GET["id"])) {

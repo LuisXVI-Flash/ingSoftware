@@ -13,28 +13,32 @@ if (isset($_POST["guardar_usuario"])) {
     if (isset($cargo) && isset($nombre) && isset($apellido) && isset($contrasenia_1) && isset($contrasenia_2) && isset($user_nick) && isset($email)) {
         
         if ($contrasenia_1 !== $contrasenia_2) { // Si la contraseña no es igual. retonamos mensaje
-            session_start();
+            
             $_SESSION["mensaje"] = "La contraseña es incorrecta, por favor verifique";
             $_SESSION["estado"] = true;
-            header('Location: ' . $_SERVER['HTTP_REFERER']);
+            
             exit();
         }
-
-        $controlador = new controladorGestionarUsuario();
-        $controlador->call_insertar([ // Llama a la función insertar usuario interno
+        $data=[ // Llama a la función insertar usuario interno
             "idcargo" => (int) $cargo,
             "nombre" => $nombre,
             "apellido" => $apellido,
             "pasword" => md5($contrasenia_1),
             "usuario" => $user_nick,
             "email" => $email,
-        ]);
+        ];
+        require_once "./models/trabajador.php";
+        $trabajador= new Trabajador;
+        $result = $trabajador->registrarTrabajador($data);
+
+        $result = json_decode($result);
+        $_SESSION["estado"] = $result->estado;
+        $_SESSION["mensaje"] = $result->mensaje;
     } else {
-        session_start();
+        
         $_SESSION["estado"] = true;
         $_SESSION["mensaje"] = "Completa los campos";
-        header('Location: ' . $_SERVER['HTTP_REFERER']);
-        exit();
+        
     }
 } 
 if (isset($_POST["contrasenia_usuario"])) {
@@ -63,5 +67,22 @@ if (isset($_POST["contrasenia_usuario"])) {
         (new formMensajeSistema())->accesso_denegado();
     }
     exit;
+}
+if(isset($_POST["usuario"])){
+    require_once "./models/trabajador.php";
+    $trabajador=new Trabajador;
+    
+    $json=$trabajador->verificar_usuario(["usuario"=>$_POST["usuario"]]);
+    $json = json_decode($json);
+    
+    if ($json->estado && $json->usuario) {
+        $_SESSION["usuario"] = $json->usuario;
+    require_once("./view/Formulario_nueva_contrasenia.html");
+    }else{
+        require_once("./view/Formulario_registro_trabajador.html");
+    }
+}
+else{
+    require_once("./view/Formulario_registro_trabajador.html");
 }
 ?>

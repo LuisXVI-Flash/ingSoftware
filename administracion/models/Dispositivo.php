@@ -32,7 +32,8 @@ class Dispositivo extends conexion{
 	public function agregar($id,$pack,$estado){
 
 			
-			$consulta = "INSERT INTO producto VALUES ('','$id', '$pack', '$estado')";
+			$consulta = "INSERT INTO producto(id,pac,estado) VALUES ('$id', '$pack', '$estado')";
+			
 			$conexion = $this -> obtenerconexion();
             $resultado = $conexion -> query($consulta);
             $conexion -> close();

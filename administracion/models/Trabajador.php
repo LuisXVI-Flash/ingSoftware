@@ -32,6 +32,7 @@
             $idcargo, 
             1           
           )";
+         
           $conexion = Conexion::obtenerConexion();
           $query = mysqli_query($conexion, $sql); 
 
@@ -54,6 +55,7 @@
           $user = $data['usuario'];
 
           $sql = "SELECT usuario FROM trabajadores WHERE usuario = '$user' AND estado = 1";
+          
           $conexion = Conexion::obtenerConexion();
           $query = mysqli_query($conexion, $sql);
           $rowCount = mysqli_num_rows($query);

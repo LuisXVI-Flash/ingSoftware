@@ -25,9 +25,10 @@ if (isset($_SESSION["idcargo"])) {
             require_once "./view/vista_principal.html";
             require_once "./controllers/controlador_noatendidos.php";
         } elseif ($_GET["vista"] == "usuarios" && ($_SESSION['idcargo']==1 || $_SESSION['idcargo']==3)) {
-            require_once "./controllers/controlador_gestionar_trabajador.php";
             require_once "./view/vista_principal.html";
-            require_once("./view/Formulario_registro_trabajador.html");
+            require_once "./controllers/controlador_gestionar_trabajador.php";
+            
+            
         } else {
             require_once "./view/vista_principal.html";
         }
